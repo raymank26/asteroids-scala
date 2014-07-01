@@ -1,0 +1,2 @@
+Main-Class: my.game.pkg.Main
+
