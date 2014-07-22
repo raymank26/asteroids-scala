@@ -14,7 +14,6 @@ import scala.language.implicitConversions._
 import scala.collection.JavaConversions._
 
 class Stage(viewport: Viewport) extends S(viewport) {
-    spawn()
 
     def spawn() {
         val r = new Random()

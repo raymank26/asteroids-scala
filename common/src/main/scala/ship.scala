@@ -117,8 +117,8 @@ class Ship extends AcceleratableActor("ship.png") {
     def makeBullet() {
         val stage = getStage()
         val velocity = new Vector2(-10, 0)
-        velocity.rotate(degreesToRadians(getRotation))
-        val bullet = new Bullet(velocity.rotate(getRotation), (this.getX(), this.getY()))
+        velocity.rotate(getRotation)
+        val bullet = new Bullet(velocity, (this.getX(), this.getY()))
         stage.addActor(bullet)
     }
 }

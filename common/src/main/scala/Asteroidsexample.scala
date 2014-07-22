@@ -22,6 +22,7 @@ class Asteroidsexample extends Game {
         ship.setX(viewport.getViewportWidth() / 2)
         ship.setY(viewport.getViewportHeight() / 2)
         stage.addActor(ship)
+        stage.spawn
 
         Gdx.input.setInputProcessor(stage);
         stage.setKeyboardFocus(ship)
