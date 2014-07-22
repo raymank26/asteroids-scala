@@ -26,6 +26,7 @@ object SVector2 {
 
 object Implicits {
     implicit def doubleToFloat(d: Double): Float = d.toFloat
+
 }
 
 object Utils {

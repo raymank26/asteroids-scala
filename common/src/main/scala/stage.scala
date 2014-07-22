@@ -7,11 +7,20 @@ import my.game.pkg.utils.Utils._
 import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.utils.viewport.Viewport
 import com.badlogic.gdx.scenes.scene2d.{Stage => S, Actor}
+import com.badlogic.gdx.scenes.scene2d.ui.{Table, Label, Skin, TextButton}
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle
+import com.badlogic.gdx.graphics.g2d.BitmapFont
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent
+import com.badlogic.gdx.graphics.{Color, Texture, Pixmap}
+import com.badlogic.gdx.graphics.Pixmap.Format
+
 
 import scala.util.Random
 import scala.math
 import scala.language.implicitConversions._
 import scala.collection.JavaConversions._
+
 
 class Stage(viewport: Viewport) extends S(viewport) {
 
@@ -95,5 +104,57 @@ class Stage(viewport: Viewport) extends S(viewport) {
     override def act(delta:Float) {
         detectCollisions()
         super.act(delta)
+    }
+
+    def createMenu() {
+        val skin = new Skin()
+        skin.add("default", new BitmapFont())
+        val pixmap = new Pixmap(1, 1, Format.RGBA8888);
+        pixmap.setColor(Color.WHITE);
+        pixmap.fill();
+        skin.add("white", new Texture(pixmap));
+        // label = new Label("New game")
+        // label = new Label("New game")
+        // label = new Label("New game")
+        // label = new Label("New game")
+        val textButtonStyle = new TextButtonStyle()
+        textButtonStyle.up = skin.newDrawable("white", Color.DARK_GRAY)
+        textButtonStyle.down = skin.newDrawable("white", Color.DARK_GRAY)
+        textButtonStyle.checked = skin.newDrawable("white", Color.BLUE)
+        textButtonStyle.over = skin.newDrawable("white", Color.LIGHT_GRAY)
+        textButtonStyle.font = skin.getFont("default")
+        skin.add("default", textButtonStyle)
+
+        val table = new Table()
+        table.setFillParent(true)
+        addActor(table)
+        val start_game = new TextButton("Start game", skin);
+        val hall_of_fame = new TextButton("Hall of Fame", skin);
+        table.add(start_game).spaceBottom(10);
+        table.row()
+        table.add(hall_of_fame)
+
+        start_game.addListener(new ChangeListener() {
+            def changed(event:ChangeEvent, actor:Actor) {
+                println("Game should start here")
+                startGame()
+            }
+            })
+        hall_of_fame.addListener(new ChangeListener() {
+            def changed(event: ChangeEvent, actor:Actor) {
+                println("Hall of Fame should start here")
+
+            }
+            })
+    }
+
+    def startGame() {
+        clear()
+        val ship = new Ship()
+        ship.setX(viewport.getViewportWidth() / 2)
+        ship.setY(viewport.getViewportHeight() / 2)
+        addActor(ship)
+        spawn
+        setKeyboardFocus(ship)
     }
 }
