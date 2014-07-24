@@ -19,7 +19,8 @@ object Settings {
     scalacOptions ++= Seq("-Xlint", "-Ywarn-dead-code", "-Ywarn-value-discard", "-Ywarn-numeric-widen", "-unchecked", "-deprecation", "-feature"),
     resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots",
     libraryDependencies ++= Seq(
-      "com.badlogicgames.gdx" % "gdx" % "1.2.0"
+      "com.badlogicgames.gdx" % "gdx" % "1.2.0",
+      "com.badlogicgames.gdx" % "gdx-freetype" % "1.2.0"
     ),
     cancelable := true,
     proguardOptions <<= (baseDirectory) { (b) => Seq(
@@ -40,7 +41,9 @@ object Settings {
     libraryDependencies ++= Seq(
       "net.sf.proguard" % "proguard-base" % "4.8" % "provided",
       "com.badlogicgames.gdx" % "gdx-backend-lwjgl" % "1.2.0",
-      "com.badlogicgames.gdx" % "gdx-platform" % "1.2.0" classifier "natives-desktop"
+      "com.badlogicgames.gdx" % "gdx-platform" % "1.2.0" classifier "natives-desktop",
+      "com.badlogicgames.gdx" % "gdx-freetype-platform" % "1.2.0" classifier "natives-desktop"
+
     ),
     Tasks.assembly,
     desktopJarName := "asteroids-example"

@@ -1,0 +1,2012 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"template",
+				"TemplateDoesNotExist	import"
+			],
+			[
+				"par",
+				"par	p"
+			],
+			[
+				"pa",
+				"parse_csv	function"
+			],
+			[
+				"get_method",
+				"get_method_cls	function"
+			],
+			[
+				"Date",
+				"DateTimeField	class"
+			],
+			[
+				"transform",
+				"transformed_data	statement"
+			],
+			[
+				"An",
+				"AsyncResult  (class)"
+			],
+			[
+				"ab",
+				"abstractclassmethod  (class)"
+			],
+			[
+				"make_",
+				"make_choices"
+			],
+			[
+				"valida",
+				"validated"
+			],
+			[
+				"SetPas",
+				"SetPasswordOldForm"
+			],
+			[
+				"Set",
+				"SetPasswordOldForm  (class)"
+			],
+			[
+				"con",
+				"contrib  (module)"
+			],
+			[
+				"UserProfi",
+				"UserProfileForm"
+			],
+			[
+				"UserPro",
+				"UserProfileSettings"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"construct",
+				"construct_include_url"
+			],
+			[
+				"cons",
+				"construct_url"
+			],
+			[
+				"User",
+				"UserProfile  (class)"
+			],
+			[
+				"Recvo",
+				"RecoveryChangePassword"
+			],
+			[
+				"Re",
+				"RecoveryChangePassword"
+			],
+			[
+				"Login",
+				"LoginPage"
+			],
+			[
+				"json",
+				"json_response"
+			],
+			[
+				"se",
+				"send_mail  (function)"
+			],
+			[
+				"Form",
+				"FormView  (class)"
+			],
+			[
+				"F",
+				"FormView  (class)"
+			],
+			[
+				"le",
+				"leaders_vote_url"
+			],
+			[
+				"remove",
+				"removeClass  (function)"
+			],
+			[
+				"page",
+				"pages_template"
+			],
+			[
+				"top",
+				"top-paginator"
+			],
+			[
+				"pages",
+				"pages_template"
+			],
+			[
+				"is_",
+				"is_onload"
+			],
+			[
+				"pre",
+				"prev_button"
+			],
+			[
+				"to",
+				"top-rating-pages"
+			],
+			[
+				"pages_",
+				"pages_in_rule"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/rayman/workspace/python/flashcards-layout/flashcards/appflashcards/static/js/angular/directives.js",
+			"settings":
+			{
+				"buffer_size": 3823,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/rayman/workspace/python/flashcards-layout/flashcards/appflashcards/templates/include/editing_deck.html",
+			"settings":
+			{
+				"buffer_size": 2191,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/rayman/workspace/python/flashcards-layout/flashcards/appflashcards/views.py",
+			"settings":
+			{
+				"buffer_size": 3049,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/rayman/workspace/python/flashcards-layout/flashcards/appflashcards/static/js/angular/controllers.js",
+			"settings":
+			{
+				"buffer_size": 3963,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				"package control",
+				"Package Control: List Packages"
+			],
+			[
+				":",
+				":w - Save"
+			],
+			[
+				"jade",
+				"Set Syntax: Jade"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"auto",
+				"Auto Wrap: Toggle"
+			],
+			[
+				"snippet: en",
+				"Snippet: \\begin{}…\\end{}"
+			],
+			[
+				"qu",
+				"Snippet: quotes"
+			],
+			[
+				"auo",
+				"Auto Wrap: Toggle"
+			],
+			[
+				"snip",
+				"Snippet: quotes"
+			],
+			[
+				"late",
+				"Set Syntax: LaTeX"
+			],
+			[
+				":q",
+				"Set Syntax: SQL"
+			],
+			[
+				"map",
+				"View: Toggle Minimap"
+			],
+			[
+				"snippet",
+				"Snippet: Description"
+			],
+			[
+				"itemi",
+				"Snippet: Itemize"
+			],
+			[
+				"aut",
+				"Auto Wrap: Toggle"
+			],
+			[
+				":W",
+				":w - Save"
+			],
+			[
+				"mh",
+				"Snippet: mh"
+			],
+			[
+				"item",
+				"Snippet: Itemize"
+			],
+			[
+				"set syn",
+				"Set Syntax: HTML"
+			],
+			[
+				"autow",
+				"Auto Wrap: Toggle"
+			],
+			[
+				"togg",
+				"Auto Wrap: Toggle"
+			],
+			[
+				"To",
+				"Auto Wrap: Toggle"
+			],
+			[
+				"qou",
+				"Snippet: quotes"
+			],
+			[
+				"quo",
+				"Snippet: quotes"
+			],
+			[
+				"tog",
+				"Toggle Comment"
+			],
+			[
+				"snippet: p",
+				"Snippet: p"
+			],
+			[
+				"set s la",
+				"Set Syntax: LaTeX"
+			],
+			[
+				"displa",
+				"Snippet: Display Math — \\[ … \\]"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"dis",
+				"Package Control: Discover Packages"
+			],
+			[
+				"snipet",
+				"Snippet: Description"
+			],
+			[
+				"set sy la",
+				"Set Syntax: LaTeX"
+			],
+			[
+				"la",
+				"Snippet: latex"
+			],
+			[
+				"latex",
+				"Snippet: latex"
+			],
+			[
+				"snippet mat",
+				"Snippet: Display Math — \\[ … \\]"
+			],
+			[
+				"snippet: ",
+				"Snippet: Display Math — \\[ … \\]"
+			],
+			[
+				"math",
+				"Snippet: Display Math — \\[ … \\]"
+			],
+			[
+				":$",
+				":$ - EOF"
+			],
+			[
+				"bro",
+				"Preferences: Browse Packages"
+			],
+			[
+				"user",
+				"Preferences: Settings - User"
+			],
+			[
+				"wra",
+				"Emmet: Wrap With Abbreviation"
+			],
+			[
+				"indentation",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				":e",
+				":e - Revert"
+			],
+			[
+				"remove",
+				"Emmet: Remove Tag"
+			],
+			[
+				"autofo",
+				"Anaconda: Autoformat PEP8 Errors"
+			],
+			[
+				"pep8",
+				"Anaconda: Autoformat PEP8 Errors"
+			],
+			[
+				"settings",
+				"Preferences: Settings - User"
+			],
+			[
+				"sublimelinter ",
+				"Preferences: SublimeLinter Settings – User"
+			],
+			[
+				"codeintel",
+				"SublimeCodeIntel: Disable Plugin"
+			],
+			[
+				"comm",
+				"Emmet: Toggle Comment"
+			],
+			[
+				":re",
+				":e - Revert"
+			],
+			[
+				"emmet",
+				"Emmet: Wrap With Abbreviation"
+			],
+			[
+				"package con",
+				"Package Control: Enable Package"
+			],
+			[
+				"emmet: wrap",
+				"Emmet: Wrap With Abbreviation"
+			],
+			[
+				"isntall",
+				"Package Control: Install Package"
+			],
+			[
+				"tag",
+				"Snippet: tag braces"
+			],
+			[
+				"var",
+				"Snippet: context variable (var)"
+			],
+			[
+				"static",
+				"Snippet: static"
+			],
+			[
+				":rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"stat",
+				"Snippet: static"
+			],
+			[
+				"menu",
+				"SublimeHg: Open Menu"
+			],
+			[
+				"sublimehg",
+				"SublimeHg: Open Menu"
+			],
+			[
+				"url",
+				"Snippet: url"
+			],
+			[
+				"stati",
+				"Snippet: static"
+			],
+			[
+				"block",
+				"Snippet: block"
+			],
+			[
+				"djano",
+				"Set Syntax: Python Django"
+			],
+			[
+				"inden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"space",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"key",
+				"Preferences: Key Bindings - Default"
+			],
+			[
+				":rei",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"brow",
+				"Local History: Browse"
+			],
+			[
+				"switc",
+				"BracketHighlighter: Wrap Selections with Brackets"
+			],
+			[
+				"c++",
+				"Set Syntax: C++"
+			],
+			[
+				"pyt",
+				"Set Syntax: Python"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"snipp",
+				"Snippet: #!/usr/bin/env"
+			],
+			[
+				"sni",
+				"Snippet: Instance"
+			],
+			[
+				"surr",
+				"Surround: surround selection"
+			],
+			[
+				"ena",
+				"Package Control: Enable Package"
+			],
+			[
+				"su",
+				"Surround: surround selection"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"packag",
+				"Package Control: Disable Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"intsal",
+				"Package Control: Install Package"
+			],
+			[
+				"add",
+				"Package Control: Add Repository"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"setting",
+				"Preferences: SublimeLinter Settings – Default"
+			],
+			[
+				"cha",
+				"Surround: change surround"
+			],
+			[
+				"surro",
+				"Surround: surround selection"
+			],
+			[
+				"surros",
+				"Surround: surround selection"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"keybi",
+				"Preferences: Key Bindings - Default"
+			],
+			[
+				"settings d",
+				"Preferences: Settings - Default"
+			],
+			[
+				"tex	",
+				"Set Syntax: TeX"
+			],
+			[
+				"rei",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"pytho",
+				"Set Syntax: Python"
+			],
+			[
+				"align",
+				"AlignTab"
+			],
+			[
+				"alig",
+				"AlignTab: Table Mode"
+			],
+			[
+				"aligment ke",
+				"Preferences: Alignment Key Bindings – Default"
+			],
+			[
+				"aligm",
+				"Preferences: Alignment File Settings – Default"
+			],
+			[
+				"aligment",
+				"Preferences: Alignment File Settings – Default"
+			],
+			[
+				"settingsu",
+				"Preferences: Settings - User"
+			],
+			[
+				"search",
+				"File: Search Files"
+			],
+			[
+				"package control re",
+				"Package Control: Remove Package"
+			],
+			[
+				":Lin",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				":lint",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				":show",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				":sho",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				":pytho",
+				"Set Syntax: Python"
+			],
+			[
+				"python",
+				"Set Syntax: Python"
+			],
+			[
+				"pyto",
+				"Set Syntax: Python"
+			],
+			[
+				"new fi",
+				"File: New File Relative to Current View"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"sideb",
+				"View: Toggle Open Files in Side Bar"
+			]
+		],
+		"width": 602.0
+	},
+	"console":
+	{
+		"height": 426.0,
+		"history":
+		[
+			"sublime.log_commands(True)",
+			"aligment",
+			"lint",
+			"linter",
+			"print",
+			"print(\"HERE\")",
+			"print \"HERE\"",
+			"ls",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/rayman/workspace/python/flashcards-layout/flashcards/appflashcards/templates/include/editing.html",
+		"/home/rayman/workspace/python/flashcards-layout/flashcards/appflashcards/templates/include/editing_deck.html",
+		"/home/rayman/workspace/python/flashcards-layout/flashcards/appflashcards/templates/directive/errors.html",
+		"/home/rayman/workspace/scala/asteroids-example/desktop/target/resolution-cache/reports/ivy-report.css",
+		"/home/rayman/workspace/scala/asteroids-example/project/target/resolution-cache/reports/default-default-92fce3-compile-internal.xml",
+		"/home/rayman/workspace/scala/asteroids-example/target/streams/compile/$global/$global/data",
+		"/home/rayman/workspace/scala/asteroids-example/menu.txt",
+		"/home/rayman/workspace/scala/asteroids-example/project/target/resolution-cache/reports/default-default-92fce3-compile.xml",
+		"/home/rayman/workspace/scala/asteroids-example/project/target/resolution-cache/reports/default-default-92fce3-test-internal.xml",
+		"/home/rayman/workspace/scala/asteroids-example/target/scala-2.11/cache/all-platforms/global/update/inputs",
+		"/home/rayman/workspace/scala/asteroids-example/common/src/main/scala/utils.scala",
+		"/home/rayman/workspace/scala/asteroids-example/android/src/main/scala/Main.scala",
+		"/home/rayman/workspace/python/flashcards-layout/flashcards/appflashcards/migrations/0001_initial.py",
+		"/home/rayman/workspace/python/flashcards-layout/flashcards/appflashcards/templates/include/index.html",
+		"/home/rayman/workspace/python/flashcards-layout/flashcards/appflashcards/templates/include/login.html",
+		"/home/rayman/workspace/python/flashcards-layout/flashcards/appflashcards/static/js/angular/directives.js",
+		"/usr/lib/python3.4/os.py",
+		"/home/rayman/workspace/python/flashcards-layout/flashcards/appflashcards/templates/base.html",
+		"/home/rayman/workspace/python/flashcards-layout/flashcards/appflashcards/static/js/angular/app.js",
+		"/home/rayman/workspace/python/flashcards-layout/flashcards/appflashcards/static/js/angular/controllers.js",
+		"/home/rayman/workspace/python/flashcards-layout/flashcards/flashcards/settings/base.py",
+		"/home/rayman/workspace/python/flashcards-layout/flashcards/appflashcards/admin.py",
+		"/home/rayman/workspace/python/flashcards-layout/flashcards/appflashcards/serializers.py",
+		"/home/rayman/workspace/python/flashcards-layout/flashcards/appflashcards/static/css/bootstrap-theme.css",
+		"/home/rayman/workspace/python/flashcards-layout/flashcards/appflashcards/tests.py",
+		"/home/rayman/workspace/python/flashcards-layout/flashcards/requirements.txt",
+		"/home/rayman/workspace/scala/asteroids-example/common/src/main/scala/Asteroidsexample.scala",
+		"/home/rayman/workspace/scala/asteroids-example/project/build.scala",
+		"/home/rayman/workspace/scala/asteroids-example/common/src/main/scala/base_actor.scala",
+		"/home/rayman/workspace/scala/asteroids-example/common/src/main/scala/ship.scala",
+		"/home/rayman/workspace/scala/asteroids-example/common/src/main/scala/stage.scala",
+		"/home/rayman/workspace/scala/asteroids-example/project/plugins.sbt",
+		"/home/rayman/workspace/scala/asteroids-example/android/target/resolution-cache/reports/android-android_2.11-sources.xml",
+		"/home/rayman/workspace/scala/asteroids-example/desktop/src/main/scala/Main.scala",
+		"/home/rayman/workspace/scala/asteroids-example/.gitignore",
+		"/home/rayman/workspace/scala/asteroids-example/project/build.properties",
+		"/home/rayman/workspace/scala/asteroids-example/android/target/resolution-cache/reports/android-android_2.11-plugin.xml",
+		"/home/rayman/workspace/scala/asteroids-example/desktop/src/main/proguard.cfg",
+		"/home/rayman/workspace/scala/asteroids-example/project/target/resolution-cache/reports/default-default-92fce3-sources.xml",
+		"/home/rayman/workspace/scala/asteroids-example/desktop/target/resolution-cache/reports/desktop-desktop_2.11-compile.xml",
+		"/home/rayman/workspace/scala/asteroids-example/desktop/target/resolution-cache/reports/desktop-desktop_2.11-compile-internal.xml",
+		"/home/rayman/workspace/scala/asteroids-example/desktop/target/scala-2.11/cache/desktop/compile/copy-resources",
+		"/home/rayman/workspace/scala/asteroids-example/desktop/target/scala-2.11/cache/desktop/compile/inc_compile",
+		"/home/rayman/workspace/scala/asteroids-example/desktop/target/scala-2.11/cache/desktop/global/update/inputs",
+		"/home/rayman/workspace/scala/asteroids-example/target/scala-2.11/cache/all-platforms/compile/copy-resources",
+		"/home/rayman/workspace/scala/asteroids-example/android/src/main/res/values/strings.xml",
+		"/home/rayman/workspace/scala/skinny-blank-app/src/main/scala/controller/ApiController.scala",
+		"/home/rayman/workspace/scala/skinny-blank-app/heroku/common.sh",
+		"/home/rayman/workspace/scala/skinny-blank-app/project/target/resolution-cache/reports/default-skinny-blank-app-build-plugin.xml",
+		"/home/rayman/workspace/euler/17.scala",
+		"/home/rayman/workspace/euler/15.scala",
+		"/home/rayman/workspace/euler/12.scala",
+		"/home/rayman/workspace/euler/String",
+		"/home/rayman/workspace/euler/107",
+		"/home/rayman/workspace/euler/25",
+		"/home/rayman/workspace/euler/8626013.mp4",
+		"/home/rayman/workspace/euler/names.txt",
+		"/home/rayman/workspace/euler/21.scala",
+		"/home/rayman/workspace/euler/22.scala",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/src/main/scala/com/example/app/MyScalatraWebAppStack.scala",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/.gitignore",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/target/scala-2.10/src_managed/main/scalate/templates/layouts/base_jade.scala",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/sbt",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/project/target/resolution-cache/default/my-scalatra-web-app-build/scala_2.10/sbt_0.13/0.1-SNAPSHOT/resolved.xml.properties",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/project/target/resolution-cache/default/my-scalatra-web-app-build/scala_2.10/sbt_0.13/0.1-SNAPSHOT/resolved.xml.xml",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/target/streams/$global/ivySbt/$global/out",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/project/target/streams/$global/ivySbt/$global/out",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/scalatra-hello.sublime-project",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/project/target/streams/compile/definedSbtPlugins/$global/out",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/project/target/resolution-cache/reports/default-my-scalatra-web-app-build-compile.xml",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/project/target/resolution-cache/reports/default-my-scalatra-web-app-build-docs.xml",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/project/target/resolution-cache/reports/default-my-scalatra-web-app-build-plugin.xml",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/project/target/resolution-cache/reports/default-my-scalatra-web-app-build-pom.xml",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/project/target/resolution-cache/reports/default-my-scalatra-web-app-build-provided.xml",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/project/target/resolution-cache/reports/default-my-scalatra-web-app-build-sources.xml",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/src/main/webapp/WEB-INF/templates/views/hello-scalate.jade",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/project/target/resolution-cache/reports/default-my-scalatra-web-app-build-compile-internal.xml",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/project/target/resolution-cache/reports/default-my-scalatra-web-app-build-runtime-internal.xml",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/target/resolution-cache/reports/home-my-scalatra-web-app_2.10-scala-tool.xml",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/project/target/resolution-cache/reports/default-my-scalatra-web-app-build-runtime.xml",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/project/target/resolution-cache/reports/default-my-scalatra-web-app-build-optional.xml",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/target/resolution-cache/reports/home-my-scalatra-web-app_2.10-test-internal.xml",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/target/scala-2.10/src_managed/main/scalate/templates/layouts/base_ssp.scala",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/target/resolution-cache/reports/home-my-scalatra-web-app_2.10-test.xml",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/src/main/scala/ScalatraBootstrap.scala",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/project/plugins.sbt",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/project/target/resolution-cache/reports/default-my-scalatra-web-app-build-scala-tool.xml",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/project/target/resolution-cache/reports/default-my-scalatra-web-app-build-test-internal.xml",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/project/target/resolution-cache/reports/default-my-scalatra-web-app-build-test.xml",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/src/main/webapp/WEB-INF/templates/layouts/base.ssp",
+		"/home/rayman/workspace/scala/my-scalatra-web-app/src/main/webapp/WEB-INF/templates/layouts/base.jade",
+		"/home/rayman/workspace/scala/play/my-app/conf/routes",
+		"/home/rayman/workspace/scala/play/my-app/project/target/node-modules/webjars/npm/node_modules/npm-registry-client/node_modules/couch-login/test/reset-then-signup.js",
+		"/home/rayman/workspace/scala/play/my-app/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.11",
+		"/home/rayman/workspace/scala/play/my-app/target/scala-2.11/src_managed/main/routes_routing.scala",
+		"/home/rayman/workspace/scala/play/my-app/project/target/node-modules/webjars/npm/node_modules/request/node_modules/http-signature/node_modules/ctype/tst/ctf/tst.int.js",
+		"/home/rayman/workspace/scala/play/my-app/project/target/node-modules/webjars/npm/node_modules/semver/test/index.js",
+		"/home/rayman/workspace/scala/play/my-app/project/target/node-modules/webjars/npm/node_modules/node-gyp/gyp/pylib/gyp/MSVSSettings_test.py",
+		"/home/rayman/workspace/scala/play/my-app/project/target/node-modules/webjars/npm/node_modules/node-gyp/gyp/pylib/gyp/MSVSSettings.py",
+		"/home/rayman/workspace/scala/play/my-app/project/target/node-modules/webjars/npm/node_modules/node-gyp/gyp/codereview.settings",
+		"/home/rayman/workspace/scala/play/my-app/project/target/node-modules/webjars/npm/lib/set.js",
+		"/home/rayman/workspace/scala/play/my-app/project/target/node-modules/webjars/npm/node_modules/request/node_modules/hawk/node_modules/sntp/examples/time.js",
+		"/home/rayman/workspace/scala/play/my-app/project/target/node-modules/webjars/npm/node_modules/child-process-close/test/test-spawn-and-execfile.js",
+		"/home/rayman/workspace/scala/play/my-app/project/target/node-modules/webjars/jshint/src/state.js",
+		"/home/rayman/workspace/Diploma/practic_report/abstract.tex",
+		"/home/rayman/workspace/Diploma/practic_report/analysis.tex",
+		"/home/rayman/workspace/Diploma/practic_report/preamble.tex",
+		"/home/rayman/workspace/Diploma/practic_report/sec2.tex",
+		"/home/rayman/workspace/Diploma/practic_report/sec3.tex",
+		"/home/rayman/workspace/Diploma/practic_report/conclusion.tex",
+		"/home/rayman/workspace/Diploma/practic_report/report.tex",
+		"/home/rayman/workspace/Diploma/practic_report/appendix.tex",
+		"/home/rayman/workspace/Diploma/practic_report/image/Thumbs.db:encryptable",
+		"/home/rayman/workspace/Diploma/practic_report/sec1.tex",
+		"/home/rayman/workspace/Diploma/practic_report/preface.tex",
+		"/home/rayman/workspace/Diploma/practic_report/Комплект/практика_презентация.ppt",
+		"/home/rayman/workspace/Diploma/practic_report/plain.tex",
+		"/home/rayman/workspace/Diploma/practic_report/diploma.sublime-project",
+		"/home/rayman/workspace/Diploma/practic_report/missfont.log",
+		"/home/rayman/workspace/Diploma/practic_report/Makefile",
+		"/home/rayman/workspace/Diploma/practic_report/bibtex/base.bib",
+		"/home/rayman/workspace/Diploma/practic_report/report.bbl",
+		"/home/rayman/workspace/Diploma/practic_report/build.sh",
+		"/home/rayman/workspace/Diploma/practic_report/.hgignore",
+		"/home/rayman/workspace/Diploma/practic_report/bibtex/gost780s.bst",
+		"/home/rayman/workspace/Diploma/practic_report/report.aux",
+		"/home/rayman/workspace/Diploma/practic_report/bibtex/ugost2003.bst",
+		"/home/rayman/workspace/Diploma/practic_report/bibtex/ugost2008ls.bst"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"stage.viewport",
+			"button",
+			";",
+			"();",
+			"div",
+			"settings",
+			"password",
+			"require",
+			"\"",
+			"file",
+			"robo",
+			"plugin",
+			"bullet",
+			"make",
+			"pixmap",
+			"getScale",
+			"bound_texture",
+			"getX()",
+			"adjusted_scale",
+			"makeBound",
+			"bound_texture",
+			"println",
+			"texture",
+			"getY()",
+			"getX()",
+			"height",
+			"width",
+			"bounds",
+			"X",
+			"1",
+			"asteroid.scale / 2",
+			"=",
+			"nextInt",
+			"=",
+			" =",
+			"res",
+			"println",
+			"size",
+			"Acceleratable",
+			"Ship",
+			"10",
+			"delete_by_index",
+			"()",
+			"add",
+			"what",
+			"this.addAction",
+			"already_destoyed",
+			"Array",
+			"println",
+			"asteroid",
+			"Batch",
+			".ro",
+			" /",
+			"getRotation",
+			"getX()",
+			"println",
+			"def act",
+			"draw",
+			"ship.getRotation",
+			"math.",
+			"t",
+			"time",
+			"new_velocity",
+			"old_velocity",
+			"direction",
+			"ship.velocity",
+			"rotateAction",
+			"ship.getRotation()",
+			"old_velocity",
+			"aste",
+			"math",
+			"this.getRotation()",
+			"change",
+			"ship",
+			"0.9",
+			"0.9.9",
+			"libra",
+			"update",
+			"batch",
+			"Batch",
+			"255",
+			"1",
+			"help",
+			"el",
+			"\"\"",
+			",",
+			"\",\"",
+			"AA",
+			"print",
+			"get",
+			"лечен",
+			"гауссиона",
+			"гаусиона",
+			"гауссиона",
+			"гаус",
+			"гау",
+			"евкли",
+			"Евклидово",
+			"евклидо",
+			"евк",
+			"евкл",
+			"pastepic",
+			"point",
+			"isomap",
+			"mgk",
+			"Б.",
+			"kernel",
+			"Б",
+			"pastepic",
+			"point",
+			"формы",
+			"форм",
+			"Форм",
+			"gather",
+			"},\\\\",
+			"ref",
+			"appendix",
+			"pastepic",
+			"upper",
+			"pastepic",
+			"form_processing",
+			"bibtex",
+			"enume",
+			"bibi",
+			"X",
+			"{1}",
+			"addres",
+			"address"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"paginator"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/rayman/workspace/python/flashcards-layout/flashcards/appflashcards/static/js/angular/directives.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3823,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								515,
+								515
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 918.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/rayman/workspace/python/flashcards-layout/flashcards/appflashcards/templates/include/editing_deck.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2191,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1240,
+								1240
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close"
+							],
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"HTML",
+								"Ruby",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 169.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/rayman/workspace/python/flashcards-layout/flashcards/appflashcards/views.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3049,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1981,
+								1981
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close"
+							],
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 727.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/rayman/workspace/python/flashcards-layout/flashcards/appflashcards/static/js/angular/controllers.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3963,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3641,
+								3641
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1951.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 32.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 26.0
+	},
+	"output.vi_out":
+	{
+		"height": 118.0
+	},
+	"project": "flashcards.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"view",
+				"appflashcards/views.py"
+			],
+			[
+				"contro",
+				"appflashcards/static/js/angular/controllers.js"
+			],
+			[
+				"edit",
+				"appflashcards/templates/include/editing_deck.html"
+			],
+			[
+				"dire",
+				"appflashcards/static/js/angular/directives.js"
+			],
+			[
+				"util",
+				"common/src/main/scala/utils.scala"
+			],
+			[
+				"ship",
+				"common/src/main/scala/ship.scala"
+			],
+			[
+				"sta",
+				"common/src/main/scala/stage.scala"
+			],
+			[
+				"bas",
+				"appflashcards/templates/base.html"
+			],
+			[
+				"include/",
+				"appflashcards/templates/include/editing.html"
+			],
+			[
+				"style",
+				"appflashcards/static/css/style.css"
+			],
+			[
+				"app",
+				"appflashcards/static/js/angular/app.js"
+			],
+			[
+				"bae",
+				"appflashcards/templates/base.html"
+			],
+			[
+				"settings",
+				"flashcards/settings.py"
+			],
+			[
+				"error",
+				"appflashcards/templates/directive/errors.html"
+			],
+			[
+				"con",
+				"appflashcards/static/js/angular/controllers.js"
+			],
+			[
+				"reg",
+				"appflashcards/templates/include/registration.html"
+			],
+			[
+				"build.sca",
+				"project/build.scala"
+			],
+			[
+				"asteroid",
+				"common/src/main/scala/asteroid.scala"
+			],
+			[
+				"des/ma",
+				"desktop/src/main/scala/Main.scala"
+			],
+			[
+				"scala/main",
+				"android/src/main/scala/Main.scala"
+			],
+			[
+				"build.",
+				"project/build.scala"
+			],
+			[
+				"sbt",
+				"project/plugins.sbt"
+			],
+			[
+				"controller",
+				"src/main/scala/controller/HelpController.scala"
+			],
+			[
+				"scala",
+				"22.scala"
+			],
+			[
+				"19",
+				"19.py"
+			],
+			[
+				".jad",
+				"src/main/webapp/WEB-INF/templates/views/hello-scalate.jade"
+			],
+			[
+				"s",
+				"sbt"
+			],
+			[
+				"anal",
+				"analysis.tex"
+			],
+			[
+				"ana",
+				"analysis.tex"
+			],
+			[
+				"ab",
+				"abstract.tex"
+			],
+			[
+				"prefa",
+				"preface.tex"
+			],
+			[
+				"sec2",
+				"sec2.tex"
+			],
+			[
+				"sec3",
+				"sec3.tex"
+			],
+			[
+				"se1",
+				"sec1.tex"
+			],
+			[
+				"repo",
+				"report.tex"
+			],
+			[
+				"abs",
+				"abstract.tex"
+			],
+			[
+				"sec1",
+				"sec1.tex"
+			],
+			[
+				"repor",
+				"report.tex"
+			],
+			[
+				"appen",
+				"appendix.tex"
+			],
+			[
+				"prea",
+				"preamble.tex"
+			],
+			[
+				"bbl",
+				"report.bbl"
+			],
+			[
+				"make",
+				"Makefile"
+			],
+			[
+				"pre",
+				"preamble.tex"
+			],
+			[
+				"bib",
+				"bibtex/base.bib"
+			],
+			[
+				"conc",
+				"conclusion.tex"
+			],
+			[
+				"ans",
+				"analysis.tex"
+			],
+			[
+				"bu",
+				"build.sh"
+			],
+			[
+				"toc",
+				"report.toc"
+			],
+			[
+				"bb",
+				"report.bbl"
+			],
+			[
+				"mak",
+				"Makefile"
+			],
+			[
+				"ugos",
+				"bibtex/ugost2003.bst"
+			],
+			[
+				"ugo",
+				"bibtex/ugost2003.bst"
+			],
+			[
+				"bii",
+				"bibtex/base.bib"
+			],
+			[
+				"bi",
+				"bibtex/base.bib"
+			],
+			[
+				"pream",
+				"preamble.tex"
+			],
+			[
+				"utf8",
+				"bibtex/utf8gost705u.bst"
+			],
+			[
+				"base",
+				"bibtex/base.bib"
+			],
+			[
+				"sec",
+				"sec3.tex"
+			],
+			[
+				"pref",
+				"preface.tex"
+			],
+			[
+				"re",
+				"report.tex"
+			],
+			[
+				"rpo",
+				"report.tex"
+			],
+			[
+				"model",
+				"algo_request/models.py"
+			],
+			[
+				"deta",
+				"api/templates/include/request_table_details.html"
+			],
+			[
+				"regi",
+				"api/templates/include/registration.html"
+			],
+			[
+				"requ",
+				"api/templates/include/request_table.html"
+			],
+			[
+				"html",
+				"api/templates/include/help.html"
+			],
+			[
+				"lgoin",
+				"api/templates/include/login.html"
+			],
+			[
+				"hel",
+				"api/templates/include/help.html"
+			],
+			[
+				"",
+				"api/static/js/controllers.js"
+			],
+			[
+				"serv",
+				"api/static/js/services.js"
+			],
+			[
+				"detail",
+				"api/templates/include/request_table_details.html"
+			],
+			[
+				"login",
+				"api/templates/include/login.html"
+			],
+			[
+				"set_ar",
+				"api/templates/include/set_params.html"
+			],
+			[
+				"set_",
+				"api/templates/include/set_params.html"
+			],
+			[
+				".css",
+				"api/static/css/site.css"
+			],
+			[
+				"filter",
+				"api/static/js/filters.js"
+			],
+			[
+				"table",
+				"api/templates/include/request_table.html"
+			],
+			[
+				"_ini",
+				"algo_request/methods/__init__.py"
+			],
+			[
+				"set_para",
+				"api/templates/include/set_params.html"
+			],
+			[
+				"bse",
+				"algo_request/methods/base.py"
+			],
+			[
+				"mani",
+				"algo_request/methods/manifold.py"
+			],
+			[
+				"pca",
+				"algo_request/methods/pca.py"
+			],
+			[
+				"ser",
+				"api/serializers.py"
+			],
+			[
+				"man",
+				"algo_request/methods/manifold.py"
+			],
+			[
+				"uti",
+				"algo_request/methods/utils.py"
+			],
+			[
+				"ur",
+				"api/urls.py"
+			],
+			[
+				"api",
+				"api/api.py"
+			],
+			[
+				"url",
+				"api/urls.py"
+			],
+			[
+				"ut",
+				"algo_request/methods/utils.py"
+			],
+			[
+				"setpara",
+				"api/templates/include/set_params.html"
+			],
+			[
+				"table.html",
+				"api/templates/include/request_table.html"
+			],
+			[
+				"di",
+				"api/static/js/directives.js"
+			],
+			[
+				"details",
+				"api/templates/include/request_table_details.html"
+			],
+			[
+				"pca.",
+				"algo_request/methods/pca.py"
+			],
+			[
+				"iri",
+				"algo_request/test_dataset/iris.csv"
+			],
+			[
+				"mode",
+				"algo_request/models.py"
+			],
+			[
+				"tes",
+				"algo_request/tests.py"
+			],
+			[
+				"tassk",
+				"algo_request/tasks.py"
+			],
+			[
+				".csv",
+				"algo_request/test_dataset/iris.csv"
+			],
+			[
+				"set_par",
+				"api/templates/include/set_params.html"
+			],
+			[
+				"seri",
+				"api/serializers.py"
+			],
+			[
+				"conto",
+				"api/static/js/controllers.js"
+			],
+			[
+				"tasks",
+				"algo_request/tasks.py"
+			],
+			[
+				"css",
+				"api/static/css/site.css"
+			],
+			[
+				"base.py",
+				"algo_request/methods/base.py"
+			],
+			[
+				"sett",
+				"multidim_analysis/settings.py"
+			],
+			[
+				"base.",
+				"algo_request/methods/base.py"
+			],
+			[
+				"method/_",
+				"algo_request/methods/__init__.py"
+			],
+			[
+				"api.",
+				"api/api.py"
+			],
+			[
+				"detai",
+				"api/templates/include/request_table_details.html"
+			],
+			[
+				"seria",
+				"api/serializers.py"
+			],
+			[
+				".html",
+				"api/templates/include/make_request.html"
+			],
+			[
+				"ta",
+				"algo_request/tasks.py"
+			],
+			[
+				"reque",
+				"api/templates/include/request_table.html"
+			],
+			[
+				"table.ht",
+				"api/templates/include/request_table.html"
+			],
+			[
+				"requa",
+				"api/templates/include/request_table.html"
+			],
+			[
+				"request",
+				"api/templates/include/request_table.html"
+			],
+			[
+				"control",
+				"api/static/js/controllers.js"
+			],
+			[
+				"serai",
+				"api/serializers.py"
+			],
+			[
+				"urls",
+				"api/urls.py"
+			],
+			[
+				"conro",
+				"api/static/js/controllers.js"
+			],
+			[
+				"ba",
+				"api/templates/base.html"
+			],
+			[
+				"api/ser",
+				"api/serializers.py"
+			],
+			[
+				"table.h",
+				"api/templates/include/request_table.html"
+			],
+			[
+				"tabe.",
+				"api/static/js/request_table.html"
+			],
+			[
+				"methods/",
+				"algo_request/methods/__init__.py"
+			],
+			[
+				"task",
+				"algo_request/tasks.py"
+			],
+			[
+				"req",
+				"requirements.txt"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 504.0,
+		"selected_items":
+		[
+			[
+				"",
+				"~/workspace/rudget/rudget/rudget.sublime-project"
+			]
+		],
+		"width": 383.0
+	},
+	"select_symbol":
+	{
+		"height": 92.0,
+		"selected_items":
+		[
+			[
+				"basnv",
+				"BaseNavigationView"
+			]
+		],
+		"width": 467.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 258.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

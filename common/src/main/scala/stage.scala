@@ -1,9 +1,11 @@
 package my.game.pkg.stage
 
 import my.game.pkg.asteroid.Asteroid
+import my.game.pkg.round.Round
 import my.game.pkg.ship.{Bullet, Ship}
 import my.game.pkg.utils.Utils._
 
+import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.utils.viewport.Viewport
 import com.badlogic.gdx.scenes.scene2d.{Stage => S, Actor}
@@ -15,6 +17,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent
 import com.badlogic.gdx.graphics.{Color, Texture, Pixmap}
 import com.badlogic.gdx.graphics.Pixmap.Format
 
+import com.badlogic.gdx.graphics.g2d.freetype._
 
 import scala.util.Random
 import scala.math
@@ -24,30 +27,6 @@ import scala.collection.JavaConversions._
 
 class Stage(viewport: Viewport) extends S(viewport) {
 
-    def spawn() {
-        val r = new Random()
-        val width = getViewport.getViewportWidth()
-        val height = getViewport.getViewportHeight()
-        var x:Float = 0
-        var y:Float = 0
-
-        for(i <- 1 to 5) {
-            x = r.nextInt(width)
-            y = r.nextInt(height)
-            var velocity = (math.abs(r.nextInt() % 2),
-                    math.abs(r.nextInt() %2)) match {
-                case (0, 0) => new Vector2(r.nextFloat(), r.nextFloat()).nor()
-                case (0, 1) => new Vector2(r.nextFloat(), -r.nextFloat()).nor()
-                case (1, 0) => new Vector2(-r.nextFloat(), r.nextFloat()).nor()
-                case (1, 1) => new Vector2(-r.nextFloat(), -r.nextFloat()).nor()
-            }
-            var temp = new Asteroid(x, y, 1)
-            var asteroid = new Asteroid(x, y, 1)
-            asteroid.setVelocity(velocity)
-            addActor(asteroid)
-
-        }
-    }
     def cloneAsteroid(asteroid: Asteroid, bullet:Bullet) {
         val x = asteroid.getX()
         val y = asteroid.getY()
@@ -122,7 +101,8 @@ class Stage(viewport: Viewport) extends S(viewport) {
         textButtonStyle.down = skin.newDrawable("white", Color.DARK_GRAY)
         textButtonStyle.checked = skin.newDrawable("white", Color.BLUE)
         textButtonStyle.over = skin.newDrawable("white", Color.LIGHT_GRAY)
-        textButtonStyle.font = skin.getFont("default")
+        // textButtonStyle.font = skin.getFont("default")
+        textButtonStyle.font = font12
         skin.add("default", textButtonStyle)
 
         val table = new Table()
@@ -151,10 +131,12 @@ class Stage(viewport: Viewport) extends S(viewport) {
     def startGame() {
         clear()
         val ship = new Ship()
-        ship.setX(viewport.getViewportWidth() / 2)
-        ship.setY(viewport.getViewportHeight() / 2)
-        addActor(ship)
-        spawn
-        setKeyboardFocus(ship)
+        val round = new Round(1, 0, this)
+        round.start()
     }
+
+    val generator = new FreeTypeFontGenerator(Gdx.files.internal("Orbitron-Medium.ttf"));
+    val font12 = generator.generateFont(20);
+
+
 }
