@@ -1,13 +1,18 @@
 package my.game.pkg.round
 import my.game.pkg.asteroid.Asteroid
 import my.game.pkg.ship.{Bullet, Ship}
+import my.game.pkg.stage.Stage
 
-import com.badlogic.gdx.scenes.scene2d.{Stage, Actor}
+import com.badlogic.gdx.scenes.scene2d.{Actor}
 import com.badlogic.gdx.math.Vector2
+import com.badlogic.gdx.graphics.Color
+
+import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle
+import com.badlogic.gdx.scenes.scene2d.ui.{Table, Label, Skin, TextButton}
 
 import scala.util.Random
 
-class Round(number:Int, score:Int, stage:Stage) {
+class Round(val number:Int, val score:Int, stage:Stage) {
 
     def start() {
         val ship = new Ship()
@@ -17,6 +22,10 @@ class Round(number:Int, score:Int, stage:Stage) {
         stage.addActor(ship)
         spawn
         stage.setKeyboardFocus(ship)
+
+        val labelStyle = new LabelStyle(stage.font_gen(20), Color.WHITE)
+        val score = new Label("100", labelStyle)
+        stage.addActor(score)
     }
 
     def spawn() {

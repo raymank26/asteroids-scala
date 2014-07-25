@@ -43,7 +43,6 @@ object Settings {
       "com.badlogicgames.gdx" % "gdx-backend-lwjgl" % "1.2.0",
       "com.badlogicgames.gdx" % "gdx-platform" % "1.2.0" classifier "natives-desktop",
       "com.badlogicgames.gdx" % "gdx-freetype-platform" % "1.2.0" classifier "natives-desktop"
-
     ),
     Tasks.assembly,
     desktopJarName := "asteroids-example"

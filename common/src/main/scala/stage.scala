@@ -48,34 +48,31 @@ class Stage(viewport: Viewport) extends S(viewport) {
 
     def detectCollisions() {
         val actors = getActors()
-        var flag = false
 
-        def checkOnAsteroids(bullet:Bullet, bullet_index:Int) = {
-            var i = 0
-            while(i < actors.size) {
-                actors.get(i) match {
-                    case a:Asteroid => if(bullet.collide(a)) {
-                        cloneAsteroid(a, bullet)
-                        bullet.remove()
-                        a.remove()
-                        flag = true
-                    }
-                    case _ => flag = false
-                }
-                if(flag) {
-                    true
-                }
-                i += 1
-            }
-            false
-        }
         var i = 0
-        while(i < actors.size) {
-            actors.get(i) match {
-                case a:Bullet => if(checkOnAsteroids(a, i)) {
-                    i = 0
+        while(i < actors.size - 1) {
+            var j = i + 1
+            while (j < actors.size) {
+                val expr = (actors.get(i), actors.get(j)) match {
+                    case (asteroid:Asteroid, bullet:Bullet) => (bullet, asteroid)
+                    case (asteroid:Asteroid, ship:Ship) => {
+                         (ship, asteroid)
+                     }
+                    case otherwise => otherwise
                 }
-                case _ =>
+                expr match {
+                    case (bullet:Bullet, asteroid:Asteroid) if bullet.collide(asteroid) => {
+                        cloneAsteroid(asteroid, bullet)
+                        bullet.remove()
+                        asteroid.remove()
+                    }
+                    case (ship:Ship, asteroid:Asteroid) if ship.collide(asteroid) => {
+                        println("GAME OVER")
+                    }
+                    case _ =>
+
+                }
+                j += 1
             }
             i += 1
         }
@@ -102,7 +99,7 @@ class Stage(viewport: Viewport) extends S(viewport) {
         textButtonStyle.checked = skin.newDrawable("white", Color.BLUE)
         textButtonStyle.over = skin.newDrawable("white", Color.LIGHT_GRAY)
         // textButtonStyle.font = skin.getFont("default")
-        textButtonStyle.font = font12
+        textButtonStyle.font = font_gen(20)
         skin.add("default", textButtonStyle)
 
         val table = new Table()
@@ -130,13 +127,18 @@ class Stage(viewport: Viewport) extends S(viewport) {
 
     def startGame() {
         clear()
-        val ship = new Ship()
-        val round = new Round(1, 0, this)
-        round.start()
+        val current_round = new Round(1, 0, this)
+        current_round.start()
     }
 
-    val generator = new FreeTypeFontGenerator(Gdx.files.internal("Orbitron-Medium.ttf"));
-    val font12 = generator.generateFont(20);
+    def nextRound() {
+        clear()
+        current_round = new Round(current_round.number + 1, current_round.score, this)
+    }
 
+    var current_round: Round = _
+
+    val generator = new FreeTypeFontGenerator(Gdx.files.internal("Orbitron-Medium.ttf"));
+    val font_gen = (i:Int) => generator.generateFont(i);
 
 }
