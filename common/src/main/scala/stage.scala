@@ -63,6 +63,7 @@ class Stage(viewport: Viewport) extends S(viewport) {
                 expr match {
                     case (bullet:Bullet, asteroid:Asteroid) if bullet.collide(asteroid) => {
                         cloneAsteroid(asteroid, bullet)
+                        current_round.incrementScore(asteroid.getScore)
                         bullet.remove()
                         asteroid.remove()
                     }
@@ -127,7 +128,7 @@ class Stage(viewport: Viewport) extends S(viewport) {
     def startGame() {
         clear()
         val initState = new RoundState(0, 3, 1)
-        val current_round = new Round(initState, this)
+        current_round = new Round(initState, this)
 
         current_round.splash()
     }

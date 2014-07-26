@@ -16,13 +16,15 @@ import com.badlogic.gdx.scenes.scene2d.ui.{Table, Label, Skin, TextButton, Image
 
 import scala.util.Random
 
-case class RoundState(val score:Int, val lives:Int, val number:Int)
+case class RoundState(var score:Int, var hearts:Int, var number:Int)
 
 class Round(state:RoundState, stage:Stage) {
+    var score: Label = _
+    var hearts: Label = _
 
     def splash() {
-        start()
-        return;
+        // start()
+        // return;
         val labelStyle = new LabelStyle(stage.font_gen(40), Color.WHITE)
         val viewport = stage.getViewport()
         val welcome = new Label("ROUND 1", labelStyle)
@@ -49,22 +51,22 @@ class Round(state:RoundState, stage:Stage) {
         ship.setY(height / 2)
 
         stage.addActor(ship)
-        spawn
+        spawn_asteroids
         stage.setKeyboardFocus(ship)
 
         val labelStyle = new LabelStyle(stage.font_gen(20), Color.WHITE)
-        val score = new Label("10000", labelStyle)
+        score = new Label(state.score.toString, labelStyle)
         val skin = new Skin()
         skin.add("heart", new Texture("heart.png"))
         val dashboard = new Table()
 
         val heart = new Image(skin.getDrawable("heart"))
-        val lives = new Label("3", labelStyle)
+        hearts = new Label(state.hearts.toString, labelStyle)
         dashboard.setFillParent(true);
 
-        dashboard.add(heart)
-        dashboard.add(lives)
-        dashboard.add(score).expandX().right()
+        dashboard.add(heart).padLeft(5)
+        dashboard.add(hearts)
+        dashboard.add(score).expandX().right().padRight(5)
         dashboard.top().left()
 
 
@@ -74,7 +76,7 @@ class Round(state:RoundState, stage:Stage) {
 
     }
 
-    def spawn() {
+    def spawn_asteroids() {
         val r = new Random()
         val viewport = stage.getViewport()
         val width = viewport.getViewportWidth()
@@ -98,6 +100,14 @@ class Round(state:RoundState, stage:Stage) {
             stage.addActor(asteroid)
 
         }
+    }
+    def incrementScore(value: Int) = {
+        state.score += value
+        score.setText(state.score.toString)
+
+
+
+
     }
 
 }

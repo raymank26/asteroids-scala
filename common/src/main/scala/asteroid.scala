@@ -11,18 +11,14 @@ class Asteroid(val xPos:Float, val yPos:Float, val scale:Float) extends Accelera
     val SCALE_FACTOR = 2
     setPosition(xPos, yPos)
     val adjusted_scale = scale * SCALE_FACTOR
-    // println(adjusted_scale)
     setScale(adjusted_scale)
-    // updateBounds(0, 0,
-    //     texture.getWidth() * adjusted_scale * 2,
-    //     texture.getHeight() * adjusted_scale * 2)
     updateBounds(0, 0, 100, 100)
 
-
     addAction(Actions.forever(Actions.rotateBy(1)))
-
     override def act(delta:Float) {
         super.act(delta)
     }
+
+    def getScore = (100 * scale).toInt
 
 }
