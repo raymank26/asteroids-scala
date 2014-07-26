@@ -1,7 +1,7 @@
 package my.game.pkg.stage
 
 import my.game.pkg.asteroid.Asteroid
-import my.game.pkg.round.Round
+import my.game.pkg.round.{Round, RoundState}
 import my.game.pkg.ship.{Bullet, Ship}
 import my.game.pkg.utils.Utils._
 
@@ -120,25 +120,27 @@ class Stage(viewport: Viewport) extends S(viewport) {
         hall_of_fame.addListener(new ChangeListener() {
             def changed(event: ChangeEvent, actor:Actor) {
                 println("Hall of Fame should start here")
-
             }
             })
     }
 
     def startGame() {
         clear()
-        val current_round = new Round(1, 0, this)
-        current_round.start()
+        val initState = new RoundState(0, 3, 1)
+        val current_round = new Round(initState, this)
+
+        current_round.splash()
     }
 
-    def nextRound() {
-        clear()
-        current_round = new Round(current_round.number + 1, current_round.score, this)
-    }
+    // def nextRound() {
+    //     clear()
+    //     current_round = new Round(current_round.number + 1, current_round.score, this)
+    // }
 
     var current_round: Round = _
 
-    val generator = new FreeTypeFontGenerator(Gdx.files.internal("Orbitron-Medium.ttf"));
+    val generator = new FreeTypeFontGenerator(
+        Gdx.files.internal("Orbitron-Medium.ttf"));
     val font_gen = (i:Int) => generator.generateFont(i);
 
 }

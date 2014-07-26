@@ -10,7 +10,7 @@ import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.scenes.scene2d.Action
 
 import scala.language.implicitConversions._
-
+import my.game.pkg.utils.Implicits._
 import scala.collection.JavaConversions._
 
 class ActorInView(val texture_path:String) extends Actor {
