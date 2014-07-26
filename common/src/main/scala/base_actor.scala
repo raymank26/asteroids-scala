@@ -51,9 +51,9 @@ class ActorInView(val texture_path:String) extends Actor {
     }
     override def draw(batch:Batch, alpha:Float) {
         val bt = bound_texture
-        batch.draw(bt,this.getX(),getY(),this.getOriginX(),this.getOriginY(),this.getWidth(),
-            this.getHeight(),this.getScaleX(), this.getScaleY(),this.getRotation(),0,0,
-            bt.getWidth(),bt.getHeight(),false,false);
+        // batch.draw(bt,this.getX(),getY(),this.getOriginX(),this.getOriginY(),this.getWidth(),
+        //     this.getHeight(),this.getScaleX(), this.getScaleY(),this.getRotation(),0,0,
+        //     bt.getWidth(),bt.getHeight(),false,false);
 
         batch.draw(texture,this.getX(),getY(),this.getOriginX(),this.getOriginY(),this.getWidth(),
             this.getHeight(),this.getScaleX(), this.getScaleY(),this.getRotation(),0,0,

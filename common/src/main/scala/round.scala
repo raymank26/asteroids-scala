@@ -64,7 +64,7 @@ class Round(state:RoundState, stage:Stage) {
         hearts = new Label(state.hearts.toString, labelStyle)
         dashboard.setFillParent(true);
 
-        dashboard.add(heart).padLeft(5)
+        dashboard.add(heart).padLeft(5).padRight(3)
         dashboard.add(hearts)
         dashboard.add(score).expandX().right().padRight(5)
         dashboard.top().left()

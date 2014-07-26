@@ -7,10 +7,15 @@ import my.game.pkg.base_actor.{ActorInView, AcceleratableActor}
 import com.badlogic.gdx.Gdx
 
 import com.badlogic.gdx.scenes.scene2d.actions.Actions
-import com.badlogic.gdx.scenes.scene2d.Action
-import com.badlogic.gdx.scenes.scene2d.InputEvent
-import com.badlogic.gdx.scenes.scene2d.InputListener
+import com.badlogic.gdx.scenes.scene2d.{Action, InputEvent, InputListener}
+import com.badlogic.gdx.graphics.g2d.Animation
+import com.badlogic.gdx.utils.{Array => GArray}
 import com.badlogic.gdx.math.Vector2
+import com.badlogic.gdx.graphics.g2d.TextureRegion
+import com.badlogic.gdx.graphics.g2d.Batch
+import com.badlogic.gdx.graphics.Texture
+import com.badlogic.gdx.graphics.Pixmap.Format.RGB888
+import com.badlogic.gdx.utils.Timer
 
 import scala.language.implicitConversions._
 
@@ -50,22 +55,35 @@ class Ship extends AcceleratableActor("ship.png") {
     val ANGLE: Float = 10
     val ACC: Float = 2.0f
 
+    val frames: GArray[TextureRegion] = new GArray()
+    var stateTime = 0f
+    frames.add(new TextureRegion(texture))
+    // empty frame
+    frames.add(new TextureRegion(new Texture(texture.getWidth(),
+        texture.getHeight(),
+        RGB888
+        )))
+
+    var is_immune = false
+    val inv_animation = new Animation(5f, frames)
     val actions = Array(
         Actions.forever(Actions.rotateBy(ANGLE)),
         Actions.forever(Actions.rotateBy(-ANGLE)),
         Actions.forever(new ShipMovingAction(ACC, ship => ship.getRotation))
     )
-    def resetState() = {
-        // def getAngle(ship: Ship):Float = {
-        //     val l = ship.velocity.len()
-        //     val angle = math.acos(ship.velocity.x.toFloat / l) * 180 / math.Pi
-        //     println(angle)
-        //     angle
-        // }
-        // addAction(new ShipMovingAction(-0.5f, getAngle))
-    }
+    setImmunity(2)
 
-    resetState()
+    def setImmunity(time: Float) = {
+        is_immune = true
+
+        Timer.schedule(new Timer.Task {
+            override def run() {
+                is_immune = false
+            }
+            }, time)
+
+
+    }
 
     addListener(new InputListener {
         override def keyDown(event: InputEvent, keycode: Int):Boolean = {
@@ -98,6 +116,21 @@ class Ship extends AcceleratableActor("ship.png") {
 
     })
 
+    override def draw(batch:Batch, alpha:Float) = {
+        if(is_immune) {
+            stateTime += alpha
+            val frame = inv_animation.getKeyFrame(stateTime, true).getTexture
+            println(stateTime)
+            batch.draw(frame,this.getX(),getY(),this.getOriginX(),this.getOriginY(),this.getWidth(),
+                this.getHeight(),this.getScaleX(), this.getScaleY(),this.getRotation(),0,0,
+                texture.getWidth(),texture.getHeight(),false,false);
+        }
+        else {
+            super.draw(batch, alpha)
+        }
+
+    }
+
     def movement(keycode:Int, space: => Unit, left: => Unit, right: => Unit, up: => Unit) = {
         keycode match {
             case 21 => left
@@ -107,12 +140,6 @@ class Ship extends AcceleratableActor("ship.png") {
             case _ =>
         }
     }
-    // override def act(delta: Float) {
-    //     for(i <- getActions()) {
-    //         i.act(delta)
-    //     }
-    //     super.act(delta)
-    // }
 
     def makeBullet() {
         val stage = getStage()
@@ -120,6 +147,10 @@ class Ship extends AcceleratableActor("ship.png") {
         velocity.rotate(getRotation)
         val bullet = new Bullet(velocity, (this.getX(), this.getY()))
         stage.addActor(bullet)
+    }
+
+    def drawInvulnerable() = {
+
     }
 }
 

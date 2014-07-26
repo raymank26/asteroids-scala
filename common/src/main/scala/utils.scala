@@ -2,6 +2,7 @@ package my.game.pkg.utils
 
 import com.badlogic.gdx.math.Vector2
 import scala.language.implicitConversions
+
 import scala.math
 
 class SVector2(x:Float, y:Float) extends Vector2(x, y) {
@@ -26,6 +27,7 @@ object SVector2 {
 
 object Implicits {
     implicit def doubleToFloat(d: Double): Float = d.toFloat
+
 
 }
 
