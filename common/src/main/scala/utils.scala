@@ -2,6 +2,7 @@ package my.game.pkg.utils
 
 import com.badlogic.gdx.math.Vector2
 import scala.language.implicitConversions
+import com.badlogic.gdx.utils.Timer
 
 import scala.math
 
@@ -27,6 +28,12 @@ object SVector2 {
 
 object Implicits {
     implicit def doubleToFloat(d: Double): Float = d.toFloat
+
+    implicit def runMethodToTask(r: => Unit): Timer.Task = {
+        new Timer.Task {
+            override def run () = r
+        }
+    }
 
 
 }

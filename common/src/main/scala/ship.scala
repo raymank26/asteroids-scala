@@ -16,6 +16,7 @@ import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.Pixmap.Format.RGB888
 import com.badlogic.gdx.utils.Timer
+import com.badlogic.gdx.math.Circle
 
 import scala.language.implicitConversions._
 
@@ -52,11 +53,12 @@ class ShipMovingAction(val acc:Float, rotation: AcceleratableActor => Float) ext
 
 class Ship extends AcceleratableActor("ship.png") {
 
-    val ANGLE: Float = 10
-    val ACC: Float = 2.0f
+    private val ANGLE: Float = 10
+    private val ACC: Float = 2.0f
 
-    val frames: GArray[TextureRegion] = new GArray()
-    var stateTime = 0f
+    private val frames: GArray[TextureRegion] = new GArray()
+    private var stateTime = 0f
+
     frames.add(new TextureRegion(texture))
     // empty frame
     frames.add(new TextureRegion(new Texture(texture.getWidth(),
@@ -65,7 +67,7 @@ class Ship extends AcceleratableActor("ship.png") {
         )))
 
     var is_immune = false
-    val inv_animation = new Animation(5f, frames)
+    private val inv_animation = new Animation(5f, frames)
     val actions = Array(
         Actions.forever(Actions.rotateBy(ANGLE)),
         Actions.forever(Actions.rotateBy(-ANGLE)),
@@ -76,11 +78,7 @@ class Ship extends AcceleratableActor("ship.png") {
     def setImmunity(time: Float) = {
         is_immune = true
 
-        Timer.schedule(new Timer.Task {
-            override def run() {
-                is_immune = false
-            }
-            }, time)
+        Timer.schedule(is_immune = false, time)
 
 
     }
@@ -156,9 +154,9 @@ class Ship extends AcceleratableActor("ship.png") {
 
 
 class Bullet(val velocity: Vector2, from: (Float, Float)) extends ActorInView("bullet.png") {
-    val v1 = new Vector2(from._1, from._2)
-    val v2 = new Vector2(0, 0)
-    var overall:Float = 0
+    private val v1 = new Vector2(from._1, from._2)
+    private val v2 = new Vector2(0, 0)
+    private var overall:Float = 0
 
     setPosition(v1.x, v1.y)
 

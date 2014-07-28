@@ -14,7 +14,7 @@ import my.game.pkg.utils.Implicits._
 import scala.collection.JavaConversions._
 
 class ActorInView(val texture_path:String) extends Actor {
-    val bounds = new Rectangle()
+    protected val bounds = new Rectangle()
     protected val texture = new Texture(Gdx.files.internal(texture_path))
 
     updateBounds(getX(), getY(), texture.getWidth(), texture.getHeight())
