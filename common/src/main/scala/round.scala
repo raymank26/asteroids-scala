@@ -133,6 +133,8 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
         ship.setY(height / 2)
         ship.setImmunity(2)
 
+        Settings.sounds("die").play()
+
     }
 
     def cloneAsteroid(asteroid: Asteroid, bullet:Bullet) {

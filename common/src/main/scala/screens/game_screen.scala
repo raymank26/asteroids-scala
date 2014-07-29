@@ -3,7 +3,7 @@ package my.game.pkg.screens
 import my.game.pkg.utils.Utils._
 import my.game.pkg.Asteroidsexample
 import my.game.pkg.round.{Round, RoundState}
-import my.game.pkg.Settings.font_gen
+import my.game.pkg.Settings.{font_gen, sounds}
 
 import com.badlogic.gdx.scenes.scene2d.{Stage, Actor}
 import com.badlogic.gdx.scenes.scene2d.ui.{Table, Label, Skin, TextButton}
@@ -23,13 +23,20 @@ class GameScreen(
     val initState = new RoundState(0, 3, 1)
     var current_round = new Round(initState, this, stage)
 
+    val background_sound = sounds("background")
+
     def start () {
         current_round.splash()
+        background_sound.loop()
     }
 
     override def render(delta: Float) {
         current_round.act
         super.render(delta)
+    }
+
+    override def hide() {
+        background_sound.stop()
     }
 }
 

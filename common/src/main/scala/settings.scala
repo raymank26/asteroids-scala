@@ -19,6 +19,8 @@ object Settings {
         "fire" -> Gdx.audio.newSound(Gdx.files.internal("sounds/fire.wav")),
         "bangLarge" -> Gdx.audio.newSound(Gdx.files.internal("sounds/bangLarge.wav")),
         "bangMedium" -> Gdx.audio.newSound(Gdx.files.internal("sounds/bangMedium.wav")),
-        "bangSmall" -> Gdx.audio.newSound(Gdx.files.internal("sounds/bangSmall.wav"))
+        "bangSmall" -> Gdx.audio.newSound(Gdx.files.internal("sounds/bangSmall.wav")),
+        "background" -> Gdx.audio.newSound(Gdx.files.internal("sounds/background.wav")),
+        "die" -> Gdx.audio.newSound(Gdx.files.internal("sounds/die.wav"))
         )
 }
