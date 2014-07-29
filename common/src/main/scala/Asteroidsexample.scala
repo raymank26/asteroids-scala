@@ -2,7 +2,7 @@ package my.game.pkg
 
 import my.game.pkg.ship.Ship
 // import my.game.pkg.stage.Stage
-import my.game.pkg.screens.{MainMenu, GameScreen}
+import my.game.pkg.screens._
 
 import scala.math
 
@@ -17,11 +17,17 @@ class Asteroidsexample extends Game {
 
     var main_menu: MainMenu = _
     var game_screen: GameScreen = _
+    var gameover_screen: GameOverScreen = _
 
     def create () {
         main_menu = new MainMenu(game=this)
         game_screen = new GameScreen(game=this)
+        gameover_screen = new GameOverScreen(game=this)
+
         setScreen(main_menu)
+
+        // gameover_screen.score = (10000)
+        // setScreen(gameover_screen)
 
     }
 
@@ -35,7 +41,8 @@ class Asteroidsexample extends Game {
     }
 
     def showGameOver(score:Int) {
-        println(s"GAME OVER ${score}")
+        gameover_screen.score = score
+        setScreen(gameover_screen)
     }
     // override def create() {
     //     stage = new Stage(new ScreenViewport())
