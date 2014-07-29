@@ -2,6 +2,7 @@ package my.game.pkg.ship
 
 import my.game.pkg.utils.Implicits._
 import my.game.pkg.utils.Utils._
+import my.game.pkg.Settings
 import my.game.pkg.base_actor.{ActorInView, AcceleratableActor}
 
 import com.badlogic.gdx.Gdx
@@ -51,9 +52,33 @@ class ShipMovingAction(val acc:Float, rotation: AcceleratableActor => Float) ext
     }
 }
 
+class BulletShot extends Action {
+
+    var delta_sum: Float = 0
+    var is_first_shot = true
+    override def act(delta: Float) = {
+        delta_sum += delta
+        if(delta_sum > delta * 7 || is_first_shot) {
+            is_first_shot = false
+            delta_sum = 0
+            val ship = actor match {
+                case ship: Ship => ship
+                case _ => throw new ClassCastException
+            }
+            ship.makeBullet()
+            Settings.sounds("fire").play()
+
+        }
+        else {
+            println("HERE")
+        }
+        true
+    }
+}
+
 class Ship extends AcceleratableActor("ship.png") {
 
-    private val ANGLE: Float = 10
+    private val ANGLE: Float = 5
     private val ACC: Float = 2.0f
 
     private val frames: GArray[TextureRegion] = new GArray()
@@ -71,7 +96,8 @@ class Ship extends AcceleratableActor("ship.png") {
     val actions = Array(
         Actions.forever(Actions.rotateBy(ANGLE)),
         Actions.forever(Actions.rotateBy(-ANGLE)),
-        Actions.forever(new ShipMovingAction(ACC, ship => ship.getRotation))
+        Actions.forever(new ShipMovingAction(ACC, ship => ship.getRotation)),
+        Actions.forever(new BulletShot())
     )
     setImmunity(2)
 
@@ -87,10 +113,10 @@ class Ship extends AcceleratableActor("ship.png") {
         override def keyDown(event: InputEvent, keycode: Int):Boolean = {
             // actions.map(_.reset())
             movement(keycode,
-                makeBullet(),
-                addAction(actions(0)),
-                addAction(actions(1)),
-                addAction(actions(2))
+                space=addAction(actions(3)),
+                left=addAction(actions(0)),
+                right=addAction(actions(1)),
+                up=addAction(actions(2))
             )
             true
         }
@@ -101,10 +127,11 @@ class Ship extends AcceleratableActor("ship.png") {
                     case 0 => Actions.forever(Actions.rotateBy(ANGLE))
                     case 1 => Actions.forever(Actions.rotateBy(-ANGLE))
                     case 2 => Actions.forever(new ShipMovingAction(ACC, ship => ship.getRotation))
+                    case 3 => Actions.forever(new BulletShot())
                 }
             }
             movement(keycode,
-                (),
+                replace_and_delete_action(3),
                 replace_and_delete_action(0),
                 replace_and_delete_action(1),
                 replace_and_delete_action(2)

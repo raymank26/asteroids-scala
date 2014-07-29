@@ -7,7 +7,19 @@ import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.scenes.scene2d.actions.Actions
 // import scala.utils.Random
 
-class Asteroid(val xPos:Float, val yPos:Float, val scale:Float) extends AcceleratableActor("asteroid.png") {
+object AsteroidSize extends Enumeration {
+    type AsteroidSize = Value
+    val Big, Medium, Small = Value
+}
+import AsteroidSize._
+
+class Asteroid(val xPos:Float, val yPos:Float, val size:AsteroidSize) extends AcceleratableActor("asteroid.png") {
+    val scale = size match {
+        case AsteroidSize.Big => 1.0f
+        case AsteroidSize.Medium => 1.0f / 2
+        case AsteroidSize.Small => 1.0f / 4
+    }
+
     val SCALE_FACTOR = 2
     setPosition(xPos, yPos)
     val adjusted_scale = scale * SCALE_FACTOR

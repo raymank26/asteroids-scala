@@ -1,11 +1,12 @@
 package my.game.pkg.round
 
 import my.game.pkg.screens.GameScreen
-import my.game.pkg.asteroid.Asteroid
+import my.game.pkg.asteroid.{Asteroid}
+import my.game.pkg.asteroid.AsteroidSize._
 import my.game.pkg.ship.{Bullet, Ship}
 import my.game.pkg.base_actor.ActorInView
 import my.game.pkg.utils.Implicits._
-import my.game.pkg.Settings.font_gen
+import my.game.pkg.Settings
 import my.game.pkg.utils.Utils._
 
 import com.badlogic.gdx.scenes.scene2d.{Actor, Stage}
@@ -38,7 +39,7 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
         stage.clear()
         // start()
         // return;
-        val labelStyle = new LabelStyle(font_gen(40), Color.WHITE)
+        val labelStyle = new LabelStyle(Settings.font_gen(40), Color.WHITE)
         val viewport = stage.getViewport()
         val welcome = new Label(s"ROUND ${state.number}", labelStyle)
         stage.addActor(welcome)
@@ -65,7 +66,7 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
         spawn_asteroids
         stage.setKeyboardFocus(ship)
 
-        val labelStyle = new LabelStyle(font_gen(20), Color.WHITE)
+        val labelStyle = new LabelStyle(Settings.font_gen(20), Color.WHITE)
         score = new Label(state.score.toString, labelStyle)
         val skin = new Skin()
         skin.add("heart", new Texture("heart.png"))
@@ -95,7 +96,7 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
         var x:Float = 0
         var y:Float = 0
 
-        for(i <- 1 to 1) {
+        for(i <- 1 to state.number) {
             x = r.nextInt(width)
             y = r.nextInt(height)
             var velocity = (math.abs(r.nextInt() % 2),
@@ -105,8 +106,7 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
                 case (1, 0) => new Vector2(-r.nextFloat(), r.nextFloat()).nor()
                 case (1, 1) => new Vector2(-r.nextFloat(), -r.nextFloat()).nor()
             }
-            var temp = new Asteroid(x, y, 1)
-            var asteroid = new Asteroid(x, y, 1)
+            var asteroid = new Asteroid(x, y, Big)
             asteroid.setVelocity(velocity)
             stage.addActor(asteroid)
 
@@ -138,12 +138,15 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
     def cloneAsteroid(asteroid: Asteroid, bullet:Bullet) {
         val x = asteroid.getX()
         val y = asteroid.getY()
-        if(asteroid.adjusted_scale > 1.0/4) {
+        if(asteroid.size != Small) {
             val v = makeCollinear(bullet.velocity)
-            val scale = asteroid.scale / 2
-            var temp1 = new Asteroid(x-10, y-10, scale)
+            val size = asteroid.size match {
+                case Big => Medium
+                case Medium => Small
+            }
+            var temp1 = new Asteroid(x-10, y-10, size)
             temp1.setVelocity(v._1.x, v._1.y)
-            var temp2 = new Asteroid(x+10, y+10, scale)
+            var temp2 = new Asteroid(x+10, y+10, size)
             temp2.setVelocity(v._2.x, v._2.y)
             require(temp1.getScaleX() == temp1.getScaleX())
             require(temp2.getScaleY() == temp2.getScaleY())
@@ -190,6 +193,11 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
                 }
                 expr match {
                     case (bullet:Bullet, asteroid:Asteroid) if bullet.collide(asteroid) => {
+                        asteroid.size match {
+                            case Big => Settings.sounds("bangLarge").play()
+                            case Medium => Settings.sounds("bangMedium").play()
+                            case Small => Settings.sounds("bangSmall").play()
+                        }
                         cloneAsteroid(asteroid, bullet)
                         incrementScore(asteroid.getScore)
                         bullet.remove()
