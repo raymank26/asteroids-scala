@@ -33,6 +33,10 @@ class Asteroidsexample extends Game {
     def setHallOfFame() {
 
     }
+
+    def showGameOver(score:Int) {
+        println(s"GAME OVER ${score}")
+    }
     // override def create() {
     //     stage = new Stage(new ScreenViewport())
     //     val ship = new Ship()

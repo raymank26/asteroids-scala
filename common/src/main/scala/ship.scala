@@ -118,7 +118,6 @@ class Ship extends AcceleratableActor("ship.png") {
         if(is_immune) {
             stateTime += alpha
             val frame = inv_animation.getKeyFrame(stateTime, true).getTexture
-            println(stateTime)
             batch.draw(frame,this.getX(),getY(),this.getOriginX(),this.getOriginY(),this.getWidth(),
                 this.getHeight(),this.getScaleX(), this.getScaleY(),this.getRotation(),0,0,
                 texture.getWidth(),texture.getHeight(),false,false);

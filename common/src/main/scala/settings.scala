@@ -1,11 +1,16 @@
 package my.game.pkg
 
-import com.badlogic.gdx.graphics.g2d.freetype._
+import com.badlogic.gdx.graphics.g2d.freetype.{FreeTypeFontGenerator => FreeGen}
 import com.badlogic.gdx.Gdx
 
 object Settings {
 
-    val generator = new FreeTypeFontGenerator(
+    private val generator = new FreeGen(
         Gdx.files.internal("Orbitron-Medium.ttf"));
-    val font_gen = (i:Int) => generator.generateFont(i);
+
+    def font_gen(size:Int) = {
+        val par = new FreeGen.FreeTypeFontParameter()
+        par.size = size
+        generator.generateFont(par)
+    }
 }

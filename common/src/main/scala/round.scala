@@ -19,6 +19,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.{Table, Label, Skin, TextButton, Image
 
 import scala.util.Random
 
+import scala.language.implicitConversions._
+import scala.collection.JavaConversions._
+
 case class RoundState(var score:Int, var hearts:Int, var number:Int)
 
 class Round(state:RoundState, screen:GameScreen, stage: Stage) {
@@ -26,22 +29,30 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
     private var hearts: Label = _
     private var ship: Ship = _
 
+    private var in_game = false
+
+
+
     def splash() {
+        in_game = false
+        stage.clear()
         // start()
         // return;
         val labelStyle = new LabelStyle(font_gen(40), Color.WHITE)
         val viewport = stage.getViewport()
-        val welcome = new Label("ROUND 1", labelStyle)
+        val welcome = new Label(s"ROUND ${state.number}", labelStyle)
         stage.addActor(welcome)
         welcome.setX(viewport.getViewportWidth() / 2 - welcome.getWidth() / 2)
         welcome.setY(viewport.getViewportHeight() / 2)
 
         Timer.schedule(start, 2)
+        Timer.schedule(isEnd, 3, 3)
 
     }
 
     def start() {
         stage.clear()
+        in_game = true
         ship = new Ship()
         val viewport = stage.getViewport()
         val width = viewport.getViewportWidth()
@@ -84,7 +95,7 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
         var x:Float = 0
         var y:Float = 0
 
-        for(i <- 1 to 2) {
+        for(i <- 1 to 1) {
             x = r.nextInt(width)
             y = r.nextInt(height)
             var velocity = (math.abs(r.nextInt() % 2),
@@ -110,6 +121,9 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
         if(decrement_heart) {
             state.hearts -= 1
             hearts.setText(state.hearts.toString)
+        }
+        if (state.hearts == - 1) {
+            screen.game.showGameOver(state.score)
         }
         val viewport = stage.getViewport()
         val width = viewport.getViewportWidth()
@@ -142,6 +156,22 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
 
     def act {
         detectCollisions
+    }
+
+    def isEnd() {
+        if(in_game) {
+            val asteroids_count = stage.getActors.items.filter((a:Actor) => a match {
+                case actor:Asteroid => true
+                case _ => false
+                }).size
+            if(asteroids_count == 0) {
+                incrementScore(state.number * 1000)
+                state.number += 1
+                splash()
+            }
+
+        }
+
     }
 
     def detectCollisions() {
