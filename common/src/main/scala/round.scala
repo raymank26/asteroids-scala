@@ -33,13 +33,17 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
     private var isUfoExist = false
 
 
-
-    def splash() {
+    def cleanupRound() = {
         Timer.instance.clear
         in_game = false
+        isUfoExist = false
         stage.clear()
-        // start()
-        // return;
+        Settings.sounds("saucerBig").stop()
+
+    }
+
+    def splash() {
+        cleanupRound()
         val labelStyle = new LabelStyle(Settings.font_gen(40), Color.WHITE)
         val viewport = stage.getViewport()
         val welcome = new Label(s"ROUND ${state.number}", labelStyle)
@@ -55,6 +59,9 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
         if(!in_game && isUfoExist) {
             return
         }
+        if(isUfoExist == false) { // will UFO be first at stage?
+            Settings.sounds("saucerBig").loop()
+        }
         isUfoExist = true
         val velocity = new Vector2(1f, 1f).rotate(Random.nextInt() % 360)
         val ufo = new Ufo(velocity)
@@ -63,7 +70,6 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
         ufo.setX(Random.nextInt() % width)
         ufo.setY(Random.nextInt() % height)
         stage.addActor(ufo)
-        Settings.sounds("saucerBig").loop()
 
     }
 
@@ -209,6 +215,20 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
     def detectCollisions() {
         val actors = stage.getActors()
 
+        def removeUfo(ufo: Ufo) {
+            ufo.remove()
+            var ufo_count = stage.getActors().filter(
+                (a:Actor) => a match {
+                    case ufo: Ufo => true
+                    case _ => false
+            }).size
+            if(ufo_count == 0) {
+                Settings.sounds("saucerBig").stop()
+            }
+            isUfoExist = false
+
+        }
+
         var i = 0
         while(i < actors.size - 1) {
             var j = i + 1
@@ -242,21 +262,17 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
                     }
                     case (ufo: Ufo, asteroid:Asteroid)
                             if ufo.collide(asteroid) => {
-                        ufo.remove()
-                        Settings.sounds("saucerBig").stop()
+                        removeUfo(ufo)
                         stage.addActor(Bang(ufo.getX(), ufo.getY()))
                         bangAsteroid(asteroid, ufo.velocity)
                         asteroid.remove()
-                        isUfoExist = false
                     }
                     case (bullet: UfoBullet, _) => Unit
                     case (bullet: Bullet, ufo:Ufo) if ufo.collide(bullet) => {
                         Settings.sounds("bangMedium").play()
-                        Settings.sounds("saucerBig").stop()
-                        ufo.remove()
+                        removeUfo(ufo)
                         bullet.remove()
                         stage.addActor(Bang(ufo.getX(), ufo.getY()))
-                        isUfoExist = false
                     }
                     case _ =>
 
