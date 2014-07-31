@@ -36,7 +36,6 @@ object Implicits {
     }
 
     implicit def scalaArrayToGdxArray[T](a:Array[T]): GArray[T] = {
-        println("IN implicit")
         val res = new GArray[T]()
         for(element <- a) {
             res.add(element)

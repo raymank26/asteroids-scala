@@ -66,14 +66,12 @@ class MainMenu(
 
     start_game.addListener(new ChangeListener() {
         def changed(event:ChangeEvent, actor:Actor) {
-            println("Game should start here")
             game.setGame()
         }
         })
     hall_of_fame.addListener(new ChangeListener() {
         def changed(event: ChangeEvent, actor:Actor) {
             game.setHallOfFame()
-            println("Hall of Fame should start here")
         }
         })
 }

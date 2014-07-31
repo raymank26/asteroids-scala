@@ -30,10 +30,12 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
     private var ship: Ship = _
 
     private var in_game = false
+    private var isUfoExist = false
 
 
 
     def splash() {
+        Timer.instance.clear
         in_game = false
         stage.clear()
         // start()
@@ -50,9 +52,10 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
 
     }
     def makeUfo() {
-        if(!in_game) {
+        if(!in_game && isUfoExist) {
             return
         }
+        isUfoExist = true
         val velocity = new Vector2(1f, 1f).rotate(Random.nextInt() % 360)
         val ufo = new Ufo(velocity)
         val viewport = stage.getViewport()
@@ -60,7 +63,6 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
         ufo.setX(Random.nextInt() % width)
         ufo.setY(Random.nextInt() % height)
         stage.addActor(ufo)
-        println("UFO CREATED")
         Settings.sounds("saucerBig").loop()
 
     }
@@ -235,6 +237,7 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
                     case (ship:Ship, bullet: UfoBullet)
                             if ship.collide(bullet) && !ship.is_immune => {
                         stage.addActor(Bang(ship.getX(), ship.getY()))
+                        bullet.remove()
                         place_ship(decrement_heart=true)
                     }
                     case (ufo: Ufo, asteroid:Asteroid)
@@ -244,6 +247,7 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
                         stage.addActor(Bang(ufo.getX(), ufo.getY()))
                         bangAsteroid(asteroid, ufo.velocity)
                         asteroid.remove()
+                        isUfoExist = false
                     }
                     case (bullet: UfoBullet, _) => Unit
                     case (bullet: Bullet, ufo:Ufo) if ufo.collide(bullet) => {
@@ -252,6 +256,7 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
                         ufo.remove()
                         bullet.remove()
                         stage.addActor(Bang(ufo.getX(), ufo.getY()))
+                        isUfoExist = false
                     }
                     case _ =>
 
