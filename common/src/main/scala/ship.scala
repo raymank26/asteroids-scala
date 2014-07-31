@@ -1,4 +1,4 @@
-package my.game.pkg.ship
+package my.game.pkg.actors
 
 import my.game.pkg.utils.Implicits._
 import my.game.pkg.utils.Utils._
@@ -56,9 +56,10 @@ class BulletShot extends Action {
 
     var delta_sum: Float = 0
     var is_first_shot = true
+    val delta_accum = 7 // larger will slower
     override def act(delta: Float) = {
         delta_sum += delta
-        if(delta_sum > delta * 7 || is_first_shot) {
+        if(delta_sum > delta * delta_accum || is_first_shot) {
             is_first_shot = false
             delta_sum = 0
             val ship = actor match {
@@ -68,9 +69,6 @@ class BulletShot extends Action {
             ship.makeBullet()
             Settings.sounds("fire").play()
 
-        }
-        else {
-            println("HERE")
         }
         true
     }
@@ -187,7 +185,6 @@ class Bullet(val velocity: Vector2, from: (Float, Float)) extends ActorInView("b
     setPosition(v1.x, v1.y)
 
     override def act(delta: Float) {
-        // setPosition(v1.x, v1.y)
         moveBy(velocity.x, velocity.y)
         v2.x = getX()
         v2.y = getY()

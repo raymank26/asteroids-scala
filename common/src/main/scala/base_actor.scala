@@ -1,6 +1,6 @@
 package my.game.pkg.base_actor
 import com.badlogic.gdx.scenes.scene2d.Actor
-import com.badlogic.gdx.math.Rectangle
+import com.badlogic.gdx.math.Circle
 import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.Pixmap
@@ -14,18 +14,20 @@ import my.game.pkg.utils.Implicits._
 import scala.collection.JavaConversions._
 
 class ActorInView(val texture_path:String) extends Actor {
-    protected val bounds = new Rectangle()
+    protected val bounds = new Circle()
     protected val texture = new Texture(Gdx.files.internal(texture_path))
 
-    updateBounds(getX(), getY(), texture.getWidth(), texture.getHeight())
+    // bounds.set( / 2, texture.getWidth() / 2, texture.getWidth() / 2)
+
+    updateBounds()
     protected var bound_texture = makeBoundTexture()
 
     setBounds(0,0,texture.getWidth(), texture.getHeight())
     setOrigin(getWidth()/2, getHeight()/2);
 
     override def act(delta: Float) {
-        updateBounds(getX(),getY(),texture.getWidth() * getScaleX,
-            texture.getHeight() * getScaleY)
+        // updateBounds(getX(),getY(),texture.getWidth() / 2)
+        updateBounds()
 
         bound_texture.dispose()
         bound_texture = makeBoundTexture()
@@ -46,14 +48,16 @@ class ActorInView(val texture_path:String) extends Actor {
             i.act(delta)
         }
     }
-    def updateBounds(x1:Float, y1:Float, x2:Float, y2:Float) = {
-        bounds.set(x1, y1, x2, y2)
+    def updateBounds() = {
+        val center = localToStageCoordinates(new Vector2(getOriginX(), getOriginY()))
+        bounds.set(center.x, center.y, texture.getWidth() / 2 * getScaleX)
     }
     override def draw(batch:Batch, alpha:Float) {
         val bt = bound_texture
-        // batch.draw(bt,this.getX(),getY(),this.getOriginX(),this.getOriginY(),this.getWidth(),
-        //     this.getHeight(),this.getScaleX(), this.getScaleY(),this.getRotation(),0,0,
-        //     bt.getWidth(),bt.getHeight(),false,false);
+        val center = localToStageCoordinates(new Vector2(getOriginX(), getOriginY()))
+        batch.draw(bt,this.getX(),getY(),this.getOriginX(),this.getOriginY(),this.getWidth(),
+            this.getHeight(),this.getScaleX(), this.getScaleY(),this.getRotation(),0,0,
+            bt.getWidth(),bt.getHeight(),false,false);
 
         batch.draw(texture,this.getX(),getY(),this.getOriginX(),this.getOriginY(),this.getWidth(),
             this.getHeight(),this.getScaleX(), this.getScaleY(),this.getRotation(),0,0,
@@ -61,12 +65,11 @@ class ActorInView(val texture_path:String) extends Actor {
     }
 
     def makeBoundTexture() = {
+        val size = (bounds.radius * 2).toInt
 
-        val pixmap = new Pixmap(bounds.width.toInt, bounds.height.toInt,
-            Format.RGB888)
+        val pixmap = new Pixmap(size, size, Format.RGB888)
         pixmap.setColor(0, 255, 0, 100)
-        pixmap.drawRectangle(0, 0, pixmap.getWidth, pixmap.getHeight)
-        pixmap.drawCircle(0, 0, 15)
+        pixmap.drawCircle(size / 2, size / 2, size / 2)
         val tex = new Texture(pixmap)
         pixmap.dispose()
         tex

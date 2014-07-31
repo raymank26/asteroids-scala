@@ -1,4 +1,4 @@
-package my.game.pkg.asteroid
+package my.game.pkg.actors
 
 import my.game.pkg.base_actor.AcceleratableActor
 import com.badlogic.gdx.graphics.Texture
@@ -24,13 +24,13 @@ class Asteroid(val xPos:Float, val yPos:Float, val size:AsteroidSize) extends Ac
     setPosition(xPos, yPos)
     val adjusted_scale = scale * SCALE_FACTOR
     setScale(adjusted_scale)
-    updateBounds(0, 0, 100, 100)
+    // updateBounds(0, 0, 100, 100)
 
     addAction(Actions.forever(Actions.rotateBy(1)))
     override def act(delta:Float) {
         super.act(delta)
     }
 
-    def getScore = (100 * scale).toInt
+    def getScore() = (100 * scale).toInt
 
 }

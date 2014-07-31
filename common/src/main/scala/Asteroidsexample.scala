@@ -1,6 +1,5 @@
 package my.game.pkg
 
-import my.game.pkg.ship.Ship
 // import my.game.pkg.stage.Stage
 import my.game.pkg.screens._
 

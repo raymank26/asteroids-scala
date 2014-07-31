@@ -2,7 +2,7 @@ package my.game.pkg.utils
 
 import com.badlogic.gdx.math.Vector2
 import scala.language.implicitConversions
-import com.badlogic.gdx.utils.Timer
+import com.badlogic.gdx.utils.{Timer, Array => GArray}
 
 import scala.math
 
@@ -35,6 +35,15 @@ object Implicits {
         }
     }
 
+    implicit def scalaArrayToGdxArray[T](a:Array[T]): GArray[T] = {
+        println("IN implicit")
+        val res = new GArray[T]()
+        for(element <- a) {
+            res.add(element)
+        }
+        res
+    }
+
 
 }
 
@@ -60,6 +69,5 @@ object Utils {
             }
         }
         (res1.nor(), res2.nor())
-
     }
 }

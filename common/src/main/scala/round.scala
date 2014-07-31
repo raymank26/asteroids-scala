@@ -1,9 +1,8 @@
 package my.game.pkg.round
 
 import my.game.pkg.screens.GameScreen
-import my.game.pkg.asteroid.{Asteroid}
-import my.game.pkg.asteroid.AsteroidSize._
-import my.game.pkg.ship.{Bullet, Ship}
+import my.game.pkg.actors.{Asteroid, Bullet, Ship, Bang, Ufo, UfoBullet}
+import my.game.pkg.actors.AsteroidSize._
 import my.game.pkg.base_actor.ActorInView
 import my.game.pkg.utils.Implicits._
 import my.game.pkg.Settings
@@ -50,6 +49,21 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
         Timer.schedule(isEnd, 3, 3)
 
     }
+    def makeUfo() {
+        if(!in_game) {
+            return
+        }
+        val velocity = new Vector2(1f, 1f).rotate(Random.nextInt() % 360)
+        val ufo = new Ufo(velocity)
+        val viewport = stage.getViewport()
+        val (width, height) = (viewport.getViewportWidth(), viewport.getViewportHeight())
+        ufo.setX(Random.nextInt() % width)
+        ufo.setY(Random.nextInt() % height)
+        stage.addActor(ufo)
+        println("UFO CREATED")
+        Settings.sounds("saucerBig").loop()
+
+    }
 
     def start() {
         stage.clear()
@@ -83,6 +97,7 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
 
 
         stage.addActor(dashboard)
+        Timer.schedule(makeUfo, 10, 10)
 
 
 
@@ -112,8 +127,13 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
 
         }
     }
-    def incrementScore(value: Int) = {
-        state.score += value
+    def incrementScore[T](value: T) = {
+        state.score += (value match {
+            case a:Asteroid => a.getScore()
+            case a:RoundState => a.number * 1000
+            case a:Ufo => 1000
+            case _ => 0 // TODO: make exception
+        })
         score.setText(state.score.toString)
     }
 
@@ -137,11 +157,16 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
 
     }
 
-    def cloneAsteroid(asteroid: Asteroid, bullet:Bullet) {
+    def bangAsteroid(asteroid: Asteroid, velocity:Vector2) {
+        asteroid.size match {
+            case Big => Settings.sounds("bangLarge").play()
+            case Medium => Settings.sounds("bangMedium").play()
+            case Small => Settings.sounds("bangSmall").play()
+        }
         val x = asteroid.getX()
         val y = asteroid.getY()
         if(asteroid.size != Small) {
-            val v = makeCollinear(bullet.velocity)
+            val v = makeCollinear(velocity)
             val size = asteroid.size match {
                 case Big => Medium
                 case Medium => Small
@@ -170,7 +195,7 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
                 case _ => false
                 }).size
             if(asteroids_count == 0) {
-                incrementScore(state.number * 1000)
+                incrementScore(state)
                 state.number += 1
                 splash()
             }
@@ -188,26 +213,45 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
             while (j < actors.size) {
                 val expr = (actors.get(i), actors.get(j)) match {
                     case (asteroid:Asteroid, bullet:Bullet) => (bullet, asteroid)
-                    case (asteroid:Asteroid, ship:Ship) => {
-                         (ship, asteroid)
-                     }
+                    case (asteroid:Asteroid, ship:Ship) => (ship, asteroid)
+                    case (a:UfoBullet, b:Ship) => (b, a)
+                    case (a:Asteroid, b:Ufo) => (b, a)
+                    case (a:Ufo, b:Bullet) => (b, a)
                     case otherwise => otherwise
                 }
                 expr match {
                     case (bullet:Bullet, asteroid:Asteroid) if bullet.collide(asteroid) => {
-                        asteroid.size match {
-                            case Big => Settings.sounds("bangLarge").play()
-                            case Medium => Settings.sounds("bangMedium").play()
-                            case Small => Settings.sounds("bangSmall").play()
-                        }
-                        cloneAsteroid(asteroid, bullet)
-                        incrementScore(asteroid.getScore)
+                        bangAsteroid(asteroid, bullet.velocity)
+                        incrementScore(asteroid)
+                        stage.addActor(Bang(asteroid.getX(), asteroid.getY()))
                         bullet.remove()
                         asteroid.remove()
                     }
                     case (ship:Ship, asteroid:Asteroid)
                             if ship.collide(asteroid) && !ship.is_immune => {
+                        stage.addActor(Bang(ship.getX(), ship.getY()))
                         place_ship(decrement_heart=true)
+                    }
+                    case (ship:Ship, bullet: UfoBullet)
+                            if ship.collide(bullet) && !ship.is_immune => {
+                        stage.addActor(Bang(ship.getX(), ship.getY()))
+                        place_ship(decrement_heart=true)
+                    }
+                    case (ufo: Ufo, asteroid:Asteroid)
+                            if ufo.collide(asteroid) => {
+                        ufo.remove()
+                        Settings.sounds("saucerBig").stop()
+                        stage.addActor(Bang(ufo.getX(), ufo.getY()))
+                        bangAsteroid(asteroid, ufo.velocity)
+                        asteroid.remove()
+                    }
+                    case (bullet: UfoBullet, _) => Unit
+                    case (bullet: Bullet, ufo:Ufo) if ufo.collide(bullet) => {
+                        Settings.sounds("bangMedium").play()
+                        Settings.sounds("saucerBig").stop()
+                        ufo.remove()
+                        bullet.remove()
+                        stage.addActor(Bang(ufo.getX(), ufo.getY()))
                     }
                     case _ =>
 

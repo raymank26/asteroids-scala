@@ -11,8 +11,8 @@ abstract class BaseScreen(stage: Stage) extends Screen {
 
     def render(delta: Float) {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        stage.draw()
         stage.act(delta);
+        stage.draw()
     }
 
     def resize(width:Int, height:Int) {

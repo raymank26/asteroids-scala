@@ -21,6 +21,7 @@ object Settings {
         "bangMedium" -> Gdx.audio.newSound(Gdx.files.internal("sounds/bangMedium.wav")),
         "bangSmall" -> Gdx.audio.newSound(Gdx.files.internal("sounds/bangSmall.wav")),
         "background" -> Gdx.audio.newSound(Gdx.files.internal("sounds/background.wav")),
-        "die" -> Gdx.audio.newSound(Gdx.files.internal("sounds/die.wav"))
+        "die" -> Gdx.audio.newSound(Gdx.files.internal("sounds/die.wav")),
+        "saucerBig" -> Gdx.audio.newSound(Gdx.files.internal("sounds/saucerBig.wav"))
         )
 }
