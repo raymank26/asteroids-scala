@@ -151,6 +151,7 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
             hearts.setText(state.hearts.toString)
         }
         if (state.hearts == - 1) {
+            cleanupRound()
             screen.game.showGameOver(state.score)
         }
         val viewport = stage.getViewport()
