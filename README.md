@@ -1,7 +1,7 @@
 # О проекте
 
 Проект представляет собой пример игры по мотивам Asteroids с использованием
-игрового движка [libgdx](libgdx.badlogicgames.com) и языка программирования [Scala](http://www.scala-lang.org/).
+игрового движка [libgdx](http://libgdx.badlogicgames.com/) и языка программирования [Scala](http://www.scala-lang.org/).
 Используется scene2d, scene2d.ui, звуковые эффекты и др.
 
 # Лицензия
