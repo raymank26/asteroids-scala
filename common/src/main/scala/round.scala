@@ -90,8 +90,9 @@ class Round(state:RoundState, screen:GameScreen, stage: Stage) {
 
         val labelStyle = new LabelStyle(Settings.font_gen(20), Color.WHITE)
         score = new Label(state.score.toString, labelStyle)
-        val skin = new Skin()
-        skin.add("heart", new Texture("heart.png"))
+        // val skin = new Skin()
+        val skin = Settings.skin
+        // skin.add("heart", new Texture("heart.png"))
         val dashboard = new Table()
 
         val heart = new Image(skin.getDrawable("heart"))

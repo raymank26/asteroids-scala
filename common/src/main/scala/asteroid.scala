@@ -13,7 +13,7 @@ object AsteroidSize extends Enumeration {
 }
 import AsteroidSize._
 
-class Asteroid(val xPos:Float, val yPos:Float, val size:AsteroidSize) extends AcceleratableActor("asteroid.png") {
+class Asteroid(val xPos:Float, val yPos:Float, val size:AsteroidSize) extends AcceleratableActor("asteroid") {
     val scale = size match {
         case AsteroidSize.Big => 1.0f
         case AsteroidSize.Medium => 1.0f / 2

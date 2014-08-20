@@ -21,6 +21,7 @@ object Settings {
     libraryDependencies ++= Seq(
       "com.badlogicgames.gdx" % "gdx" % "1.2.0",
       "com.badlogicgames.gdx" % "gdx-freetype" % "1.2.0",
+      "com.badlogicgames.gdx" % "gdx-tools" % "1.2.0",
       "net.databinder.dispatch" %% "dispatch-core" % "0.11.2"
     ),
     cancelable := true,

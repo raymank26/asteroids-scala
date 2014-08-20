@@ -28,7 +28,8 @@
     com.badlogic.gdx.scenes.scene2d.ui.TextField$TextFieldStyle: {
         default: {
             font: font20,
-            fontColor: white
+            fontColor: white,
+            background: textfield_border
         }
     }
 

@@ -1,4 +1,7 @@
 package my.game.pkg.base_actor
+
+import my.game.pkg.Settings
+
 import com.badlogic.gdx.scenes.scene2d.Actor
 import com.badlogic.gdx.math.Circle
 import com.badlogic.gdx.graphics.g2d.Batch
@@ -13,16 +16,17 @@ import scala.language.implicitConversions._
 import my.game.pkg.utils.Implicits._
 import scala.collection.JavaConversions._
 
-class ActorInView(val texture_path:String) extends Actor {
+class ActorInView(val texture_name:String) extends Actor {
     protected val bounds = new Circle()
-    protected val texture = new Texture(Gdx.files.internal(texture_path))
+    // protected val texture = new Texture(Gdx.files.internal(texture_path))
+    protected val texture = Settings.atlas.findRegion(texture_name)
 
     // bounds.set( / 2, texture.getWidth() / 2, texture.getWidth() / 2)
 
     updateBounds()
     protected var bound_texture = makeBoundTexture()
 
-    setBounds(0,0,texture.getWidth(), texture.getHeight())
+    setBounds(0,0,texture.getRegionWidth(), texture.getRegionHeight())
     setOrigin(getWidth()/2, getHeight()/2);
 
     override def act(delta: Float) {
@@ -50,7 +54,7 @@ class ActorInView(val texture_path:String) extends Actor {
     }
     def updateBounds() = {
         val center = localToStageCoordinates(new Vector2(getOriginX(), getOriginY()))
-        bounds.set(center.x, center.y, texture.getWidth() / 2 * getScaleX)
+        bounds.set(center.x, center.y, texture.getRegionWidth() / 2 * getScaleX)
     }
     override def draw(batch:Batch, alpha:Float) {
         val bt = bound_texture
@@ -60,8 +64,8 @@ class ActorInView(val texture_path:String) extends Actor {
         //     bt.getWidth(),bt.getHeight(),false,false);
 
         batch.draw(texture,this.getX(),getY(),this.getOriginX(),this.getOriginY(),this.getWidth(),
-            this.getHeight(),this.getScaleX(), this.getScaleY(),this.getRotation(),0,0,
-            texture.getWidth(),texture.getHeight(),false,false);
+            this.getHeight(),this.getScaleX(), this.getScaleY(),this.getRotation())
+
     }
 
     def makeBoundTexture() = {

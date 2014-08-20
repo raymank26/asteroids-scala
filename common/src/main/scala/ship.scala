@@ -74,7 +74,7 @@ class BulletShot extends Action {
     }
 }
 
-class Ship extends AcceleratableActor("ship.png") {
+class Ship extends AcceleratableActor("ship") {
 
     private val ANGLE: Float = 5
     private val ACC: Float = 2.0f
@@ -82,10 +82,10 @@ class Ship extends AcceleratableActor("ship.png") {
     private val frames: GArray[TextureRegion] = new GArray()
     private var stateTime = 0f
 
-    frames.add(new TextureRegion(texture))
+    frames.add(texture)
     // empty frame
-    frames.add(new TextureRegion(new Texture(texture.getWidth(),
-        texture.getHeight(),
+    frames.add(new TextureRegion(new Texture(texture.getRegionWidth(),
+        texture.getRegionHeight(),
         RGB888
         )))
 
@@ -142,10 +142,9 @@ class Ship extends AcceleratableActor("ship.png") {
     override def draw(batch:Batch, alpha:Float) = {
         if(is_immune) {
             stateTime += alpha
-            val frame = inv_animation.getKeyFrame(stateTime, true).getTexture
+            val frame = inv_animation.getKeyFrame(stateTime, true)
             batch.draw(frame,this.getX(),getY(),this.getOriginX(),this.getOriginY(),this.getWidth(),
-                this.getHeight(),this.getScaleX(), this.getScaleY(),this.getRotation(),0,0,
-                texture.getWidth(),texture.getHeight(),false,false);
+                this.getHeight(),this.getScaleX(), this.getScaleY(),this.getRotation())
         }
         else {
             super.draw(batch, alpha)
@@ -177,7 +176,7 @@ class Ship extends AcceleratableActor("ship.png") {
 }
 
 
-class Bullet(val velocity: Vector2, from: (Float, Float)) extends ActorInView("bullet.png") {
+class Bullet(val velocity: Vector2, from: (Float, Float)) extends ActorInView("bullet") {
     private val v1 = new Vector2(from._1, from._2)
     private val v2 = new Vector2(0, 0)
     private var overall:Float = 0

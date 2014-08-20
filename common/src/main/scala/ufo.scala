@@ -8,7 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor
 
 import com.badlogic.gdx.math.Vector2
 
-class Ufo(val velocity: Vector2) extends ActorInView("ufo.png") {
+class Ufo(val velocity: Vector2) extends ActorInView("ufo") {
     var interval_time = 0f
     val shooting_interval = 1f
 

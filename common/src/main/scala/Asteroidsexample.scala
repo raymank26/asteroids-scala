@@ -2,6 +2,7 @@ package my.game.pkg
 
 // import my.game.pkg.stage.Stage
 import my.game.pkg.screens._
+import com.badlogic.gdx.tools.texturepacker.TexturePacker
 
 import scala.math
 
@@ -20,13 +21,16 @@ class Asteroidsexample extends Game {
     var registration : RegistrationScreen = _
 
     def create () {
+        TexturePacker.process(
+            "/home/rayman/workspace/scala/asteroids-example/common/assets/images/",
+            "/home/rayman/workspace/scala/asteroids-example/common/assets/", "result")
         main_menu = new MainMenu(game=this)
         game_screen = new GameScreen(game=this)
         gameover_screen = new GameOverScreen(game=this)
         registration = new RegistrationScreen(game=this)
 
-        // setScreen(main_menu)
-        setScreen(registration)
+        setScreen(main_menu)
+        // setScreen(registration)
 
 
         // gameover_screen.score = (10000)

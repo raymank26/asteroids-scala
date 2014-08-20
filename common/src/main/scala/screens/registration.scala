@@ -20,6 +20,7 @@ class RegistrationScreen (
     val nameText = new TextField("", skin);
     val passwordText = new TextField("", skin);
     passwordText.setPasswordMode(true)
+    passwordText.setPasswordCharacter('*');
 
     table.add(new Label("Registration", skin, "game_name")).colspan(2).spaceBottom(10).row()
     table.add(new Label("Name", skin, "default"))
