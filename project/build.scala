@@ -20,7 +20,8 @@ object Settings {
     resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots",
     libraryDependencies ++= Seq(
       "com.badlogicgames.gdx" % "gdx" % "1.2.0",
-      "com.badlogicgames.gdx" % "gdx-freetype" % "1.2.0"
+      "com.badlogicgames.gdx" % "gdx-freetype" % "1.2.0",
+      "net.databinder.dispatch" %% "dispatch-core" % "0.11.2"
     ),
     cancelable := true,
     proguardOptions <<= (baseDirectory) { (b) => Seq(

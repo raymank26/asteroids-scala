@@ -17,13 +17,17 @@ class Asteroidsexample extends Game {
     var main_menu: MainMenu = _
     var game_screen: GameScreen = _
     var gameover_screen: GameOverScreen = _
+    var registration : RegistrationScreen = _
 
     def create () {
         main_menu = new MainMenu(game=this)
         game_screen = new GameScreen(game=this)
         gameover_screen = new GameOverScreen(game=this)
+        registration = new RegistrationScreen(game=this)
 
-        setScreen(main_menu)
+        // setScreen(main_menu)
+        setScreen(registration)
+
 
         // gameover_screen.score = (10000)
         // setScreen(gameover_screen)

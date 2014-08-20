@@ -3,13 +3,10 @@ package my.game.pkg.screens
 import my.game.pkg.utils.Utils._
 import my.game.pkg.Asteroidsexample
 import my.game.pkg.round.{Round, RoundState}
-import my.game.pkg.Settings.{font_gen, sounds}
+import my.game.pkg.Settings
 
 import com.badlogic.gdx.scenes.scene2d.{Stage, Actor}
 import com.badlogic.gdx.scenes.scene2d.ui.{Table, Label, Skin, TextButton}
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle
-import com.badlogic.gdx.graphics.g2d.BitmapFont
-import com.badlogic.gdx.graphics.{Color, Texture, Pixmap}
 
 import com.badlogic.gdx.utils.viewport.{Viewport, ScreenViewport}
 import com.badlogic.gdx.Screen
@@ -23,7 +20,7 @@ class GameScreen(
     val initState = new RoundState(0, 3, 1)
     var current_round = new Round(initState, this, stage)
 
-    val background_sound = sounds("background")
+    val background_sound = Settings.sounds("background")
 
     def start () {
         current_round.splash()
@@ -48,26 +45,15 @@ class GameOverScreen(
 
     private var _score = 0
 
-    val skin = new Skin()
-    skin.add("default", new BitmapFont())
-    val pixmap = new Pixmap(1, 1, Pixmap.Format.RGBA8888);
-    pixmap.setColor(Color.WHITE);
-    pixmap.fill();
-    skin.add("white", new Texture(pixmap));
-
-    val gameover_style = new Label.LabelStyle(font_gen(30), Color.WHITE)
-    skin.add("gameover_label", gameover_style)
-    val score_style = new Label.LabelStyle(font_gen(20), Color.WHITE)
-    skin.add("score", score_style)
-
+    val skin = Settings.skin
 
     val table = new Table()
     table.setFillParent(true)
     stage.addActor(table)
-    val gameover_label = new Label("GAME OVER", skin, "gameover_label")
+    val gameover_label = new Label("GAME OVER", skin, "big")
 
     val score_text = StringContext("Your score is ", "")
-    val score_label = new Label(score_text.s(_score), skin, "score")
+    val score_label = new Label(score_text.s(_score), skin, "default")
 
     table.add(gameover_label).padBottom(10).row()
     table.add(score_label)

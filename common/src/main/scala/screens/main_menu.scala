@@ -4,7 +4,7 @@ package my.game.pkg.screens
 
 import my.game.pkg.utils.Utils._
 import my.game.pkg.Asteroidsexample
-import my.game.pkg.Settings.font_gen
+import my.game.pkg.Settings
 
 import com.badlogic.gdx.Game
 import com.badlogic.gdx.scenes.scene2d.{Stage, Actor}
@@ -31,27 +31,7 @@ class MainMenu(
     game: Asteroidsexample
     ) extends BaseScreen(stage) {
 
-    val skin = new Skin()
-    skin.add("default", new BitmapFont())
-    val pixmap = new Pixmap(1, 1, Format.RGBA8888);
-    pixmap.setColor(Color.WHITE);
-    pixmap.fill();
-    skin.add("white", new Texture(pixmap));
-    // label = new Label("New game")
-    // label = new Label("New game")
-    // label = new Label("New game")
-    // label = new Label("New game")
-    val textButtonStyle = new TextButtonStyle()
-    // textButtonStyle.up = skin.newDrawable("white", Color.DARK_GRAY)
-    // textButtonStyle.down = skin.newDrawable("white", Color.DARK_GRAY)
-    textButtonStyle.checked = skin.newDrawable("white", Color.BLUE)
-    textButtonStyle.over = skin.newDrawable("white", Color.LIGHT_GRAY)
-    // textButtonStyle.font = skin.getFont("default")
-    textButtonStyle.font = font_gen(20)
-    skin.add("default", textButtonStyle)
-
-    val label_style = new Label.LabelStyle(font_gen(40), Color.WHITE)
-    skin.add("game_name", label_style)
+    val skin = Settings.skin
 
     val table = new Table()
     table.setFillParent(true)
