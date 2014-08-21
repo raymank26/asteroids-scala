@@ -5,6 +5,7 @@ package my.game.pkg.screens
 import my.game.pkg.utils.Utils._
 import my.game.pkg.Asteroidsexample
 import my.game.pkg.Settings
+import my.game.pkg.utils.Implicits._
 
 import com.badlogic.gdx.Game
 import com.badlogic.gdx.scenes.scene2d.{Stage, Actor}
@@ -44,16 +45,8 @@ class MainMenu(
     table.row()
     table.add(hall_of_fame)
 
-    start_game.addListener(new ChangeListener() {
-        def changed(event:ChangeEvent, actor:Actor) {
-            game.setGame()
-        }
-        })
-    hall_of_fame.addListener(new ChangeListener() {
-        def changed(event: ChangeEvent, actor:Actor) {
-            game.setHallOfFame()
-        }
-        })
+    start_game.addListener(game.setGame())
+    hall_of_fame.addListener(game.setHallOfFame())
 }
 
 

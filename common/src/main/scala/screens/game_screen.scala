@@ -1,12 +1,13 @@
 package my.game.pkg.screens
 
 import my.game.pkg.utils.Utils._
+import my.game.pkg.utils.Implicits._
 import my.game.pkg.Asteroidsexample
 import my.game.pkg.round.{Round, RoundState}
 import my.game.pkg.Settings
 
 import com.badlogic.gdx.scenes.scene2d.{Stage, Actor}
-import com.badlogic.gdx.scenes.scene2d.ui.{Table, Label, Skin, TextButton}
+import com.badlogic.gdx.scenes.scene2d.ui._
 
 import com.badlogic.gdx.utils.viewport.{Viewport, ScreenViewport}
 import com.badlogic.gdx.Screen
@@ -50,13 +51,31 @@ class GameOverScreen(
     val table = new Table()
     table.setFillParent(true)
     stage.addActor(table)
-    val gameover_label = new Label("GAME OVER", skin, "big")
 
     val score_text = StringContext("Your score is ", "")
     val score_label = new Label(score_text.s(_score), skin, "default")
+    val nameText = new TextField("", skin);
+    val passwordText = new TextField("", skin);
+    val submit = new TextButton("Submit", skin)
+    val back = new TextButton("Back to menu", skin)
 
-    table.add(gameover_label).padBottom(10).row()
-    table.add(score_label)
+    passwordText.setPasswordMode(true)
+    passwordText.setPasswordCharacter('*');
+
+    table.add(new Label("GAME OVER", skin, "big")).colspan(2).padBottom(10).row()
+    table.add(score_label).colspan(2).spaceBottom(20).row()
+
+    table.add(new Label("Name", skin, "default")).spaceRight(5)
+    table.add(nameText).spaceBottom(10)
+    table.row()
+    table.add(new Label("Password", skin, "default")).spaceRight(5)
+    table.add(passwordText).row()
+    table.add(submit).colspan(2).right().spaceBottom(20).row()
+    table.add(back).colspan(2)
+
+    submit.addListener {
+        println("submit to url here")
+    }
 
     def score = _score
 

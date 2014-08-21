@@ -1,8 +1,11 @@
 package my.game.pkg.utils
 
 import com.badlogic.gdx.math.Vector2
+import com.badlogic.gdx.scenes.scene2d.Actor
 import scala.language.implicitConversions
 import com.badlogic.gdx.utils.{Timer, Array => GArray}
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent
 
 import scala.math
 
@@ -41,6 +44,14 @@ object Implicits {
             res.add(element)
         }
         res
+    }
+
+    implicit def listenerMethod(r: => Unit): ChangeListener = {
+        new ChangeListener() {
+            def changed(event: ChangeEvent, actor:Actor) {
+                r
+            }
+        }
     }
 
 

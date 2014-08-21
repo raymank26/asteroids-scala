@@ -29,7 +29,8 @@
         default: {
             font: font20,
             fontColor: white,
-            background: textfield_border
+            background: textfield_border,
+            cursor: textfield_border,
         }
     }
 

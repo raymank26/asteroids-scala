@@ -19,6 +19,7 @@ class Asteroidsexample extends Game {
     var game_screen: GameScreen = _
     var gameover_screen: GameOverScreen = _
     var registration : RegistrationScreen = _
+    var submit_screen: SubmitScreen = _
 
     def create () {
         TexturePacker.process(
@@ -28,9 +29,12 @@ class Asteroidsexample extends Game {
         game_screen = new GameScreen(game=this)
         gameover_screen = new GameOverScreen(game=this)
         registration = new RegistrationScreen(game=this)
+        submit_screen = new SubmitScreen(game=this)
 
-        setScreen(main_menu)
+        // setScreen(main_menu)
         // setScreen(registration)
+        setScreen(gameover_screen)
+        // setScreen(submit_screen)
 
 
         // gameover_screen.score = (10000)
