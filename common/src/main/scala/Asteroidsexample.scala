@@ -21,22 +21,25 @@ class Asteroidsexample extends Game {
     var gameover_screen: GameOverScreen = _
     var registration : RegistrationScreen = _
     var submit_screen: SubmitScreen = _
+    var hall_of_fame: HallOfFameScreen = _
 
     def create () {
-        TexturePacker.process(
-            "/home/rayman/workspace/scala/asteroids-example/common/assets/images/",
-            "/home/rayman/workspace/scala/asteroids-example/common/assets/", "result")
+        // TexturePacker.process(
+        //     "/home/rayman/workspace/scala/asteroids-example/common/assets/images/",
+        //     "/home/rayman/workspace/scala/asteroids-example/common/assets/", "result")
         main_menu = new MainMenu(game=this)
         game_screen = new GameScreen(game=this)
         gameover_screen = new GameOverScreen(game=this)
         registration = new RegistrationScreen(game=this)
         submit_screen = new SubmitScreen(game=this)
+        hall_of_fame = new HallOfFameScreen(game=this)
         Backend.authenticate("anton", "123")
 
-        // setScreen(main_menu)
+        setScreen(main_menu)
         // setScreen(registration)
-        setScreen(gameover_screen)
+        // setScreen(gameover_screen)
         // setScreen(submit_screen)
+        // setScreen(hall_of_fame)
 
 
         // gameover_screen.score = (10000)

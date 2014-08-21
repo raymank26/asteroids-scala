@@ -10,7 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.utils._
 import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.g2d.TextureAtlas
-import dispatch._, Defaults._
+import dispatch._
 
 object Settings {
 
@@ -34,15 +34,17 @@ object Settings {
         )
 
     val backend_host = host("localhost", 5000)
-    val atlas = new TextureAtlas(Gdx.files.internal("result.atlas"))
+    lazy val atlas = new TextureAtlas(Gdx.files.internal("result.atlas"))
 
     val skin = {
+        println("Before")
         val skin = new Skin(atlas)
+        println("After")
         skin.add("font20", font_gen(20))
         skin.add("font30", font_gen(30))
         skin.add("font40", font_gen(40))
 
-        val pixmap = new Pixmap(1, 1, Pixmap.Format.RGBA8888)
+        val pixmap = new Pixmap(1, 1, Pixmap.Format.RGB888)
         pixmap.setColor(Color.WHITE);
         pixmap.fill();
         skin.add("white_pixmap", new Texture(pixmap))
