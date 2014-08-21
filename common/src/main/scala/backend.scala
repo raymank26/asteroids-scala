@@ -23,14 +23,17 @@ object Backend {
         }
     }
     var key: Option[String] = None
-    // def submit_score(score:Int) = {
-    //     key.map { (token:String) =>
-    //         val requestBuilder = Settings.backend_host / "scores" / "submit" / "" POST
-    //         val url = requestBuilder << Map("score" -> score.toString) <:< Map("Authentication" -> token)
-    //         val response = Http(url OK as.json4s.Json)
-    //         Some(response)
-    //     }
-    // }
+    def submit_score(score:Int) = {
+        key.map { (token:String) =>
+            Future {
+                val response = HttpJ
+                    .post(Settings.backend_host_new / "scores" / "submit" / "")
+                    .param("score", score.toString)
+                    .header("Authentication", token).asString
+                Some(response)
+            }
+        }
+    }
     def fetch_scores = {
         Future {
             val response = HttpJ(Settings.backend_host_new / "scores" / "top10" / "").asString
@@ -44,8 +47,9 @@ object Backend {
                 .method("PUT")
                 .params("username" -> name, "password" -> password)
                 .asString
+            // TODO: make JSON parsing safer
             val res = parse(response).extract[Map[String, String]]
-            res("token")
+            key = Some(res("token"))
         }
     }
     def isAuthenticated() = {

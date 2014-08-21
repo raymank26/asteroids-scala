@@ -95,7 +95,7 @@ class HallOfFameScreen (
                     .colspan(2)
                     .spaceBottom(20)
                     .row()
-                back_to_menu.addListener {
+                back_to_menu.addListener {() =>
                     game.setMainMenu()
                 }
                 for(score <- scores) {
@@ -103,7 +103,6 @@ class HallOfFameScreen (
                     table.add(new Label(score("value"), skin))
                     table.row()
                 }
-
                 table.add(back_to_menu).colspan(2).spaceTop(20).row()
             }
         }

@@ -46,10 +46,10 @@ object Implicits {
         res
     }
 
-    implicit def listenerMethod(r: => Unit): ChangeListener = {
-        new ChangeListener() {
-            def changed(event: ChangeEvent, actor:Actor) {
-                r
+    implicit def listenerMethod(func: () => Unit): ChangeListener = {
+        new ChangeListener {
+            override def changed(event: ChangeEvent, actor:Actor): Unit = {
+                func()
             }
         }
     }

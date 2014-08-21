@@ -45,8 +45,11 @@ class MainMenu(
     table.row()
     table.add(hall_of_fame)
 
-    start_game.addListener(game.setGame())
-    hall_of_fame.addListener(game.setHallOfFame())
+    start_game.addListener{ () =>
+        println("set game");
+        game.setGame()
+    }
+    hall_of_fame.addListener(() => game.setHallOfFame())
 }
 
 

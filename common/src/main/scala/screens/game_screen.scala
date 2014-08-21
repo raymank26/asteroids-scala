@@ -4,13 +4,17 @@ import my.game.pkg.utils.Utils._
 import my.game.pkg.utils.Implicits._
 import my.game.pkg.Asteroidsexample
 import my.game.pkg.round.{Round, RoundState}
-import my.game.pkg.Settings
+import my.game.pkg.{Settings, Backend}
 
 import com.badlogic.gdx.scenes.scene2d.{Stage, Actor}
 import com.badlogic.gdx.scenes.scene2d.ui._
 
 import com.badlogic.gdx.utils.viewport.{Viewport, ScreenViewport}
 import com.badlogic.gdx.Screen
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent
+
+import scala.concurrent.ExecutionContext.Implicits.global
 
 class GameScreen(
     stage:Stage = new Stage(new ScreenViewport()),
@@ -73,9 +77,27 @@ class GameOverScreen(
     table.add(submit).colspan(2).right().spaceBottom(20).row()
     table.add(back).colspan(2)
 
-    submit.addListener {
-        println("submit to url here")
+    // submit.addListener(
+    //     new ChangeListener() {
+    //         def changed(event: ChangeEvent, actor:Actor): Unit = {
+    //             println("HERE")
+    //             1 / 0
+    //         }
+    //     }
+    // )
+    submit.addListener{() => {
+        if(!Backend.isAuthenticated()) {
+            Backend.authenticate(nameText.getText, passwordText.getText)
+                .map(result => Backend.submit_score(500))
+        }
+        else {
+            Backend.submit_score(100)
+        }
+        println("HERE")
+        // Unit
     }
+    }
+
 
     def score = _score
 
