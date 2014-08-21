@@ -2,6 +2,7 @@ package my.game.pkg
 
 // import my.game.pkg.stage.Stage
 import my.game.pkg.screens._
+import my.game.pkg.Backend
 import com.badlogic.gdx.tools.texturepacker.TexturePacker
 
 import scala.math
@@ -30,6 +31,7 @@ class Asteroidsexample extends Game {
         gameover_screen = new GameOverScreen(game=this)
         registration = new RegistrationScreen(game=this)
         submit_screen = new SubmitScreen(game=this)
+        Backend.authenticate("anton", "123")
 
         // setScreen(main_menu)
         // setScreen(registration)

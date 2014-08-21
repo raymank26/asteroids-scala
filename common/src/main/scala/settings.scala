@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.utils._
 import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.g2d.TextureAtlas
+import dispatch._, Defaults._
 
 object Settings {
 
@@ -32,7 +33,7 @@ object Settings {
         "saucerBig" -> Gdx.audio.newSound(Gdx.files.internal("sounds/saucerBig.wav"))
         )
 
-    val backend_url = "http://localhost:5000/"
+    val backend_host = host("localhost", 5000)
     val atlas = new TextureAtlas(Gdx.files.internal("result.atlas"))
 
     val skin = {
