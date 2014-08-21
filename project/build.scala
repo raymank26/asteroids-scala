@@ -4,6 +4,10 @@ import Defaults._
 
 import sbtandroid.AndroidPlugin._
 import sbtrobovm.RobovmPlugin._
+import sbtassembly.Plugin._
+import AssemblyKeys._ // put this at the top of the file
+
+// assemblySettings
 
 object Settings {
   lazy val desktopJarName = SettingKey[String]("desktop-jar-name", "name of JAR file for desktop")
@@ -49,7 +53,6 @@ object Settings {
       "com.badlogicgames.gdx" % "gdx-platform" % "1.3.0" classifier "natives-desktop",
       "com.badlogicgames.gdx" % "gdx-freetype-platform" % "1.3.0" classifier "natives-desktop"
     ),
-    Tasks.assembly,
     desktopJarName := "asteroids-example"
   )
 
@@ -109,43 +112,6 @@ object Tasks {
     compile in Compile <<= (compile in Compile) dependsOn (extractNatives)
   )
 
-  lazy val assemblyKey = TaskKey[Unit]("assembly", "Assembly desktop using Proguard")
-
-  lazy val assembly = assemblyKey <<= (fullClasspath in Runtime, // dependency to make sure compile finished
-      target, desktopJarName, version, // data for output jar name
-      proguardOptions, // merged proguard.cfg from common and desktop
-      javaOptions in Compile, managedClasspath in Compile, // java options and classpath
-      classDirectory in Compile, dependencyClasspath in Compile, update in Compile, // classes and jars to proguard
-      streams) map { (c, target, name, ver, proguardOptions, options, cp, cd, dependencies, up, s) =>
-    val provided = Set(up.select(configurationFilter("provided")):_*)
-    val compile = Set(up.select(configurationFilter("compile")):_*)
-    val runtime = Set(up.select(configurationFilter("runtime")):_*)
-    val optional = Set(up.select(configurationFilter("optional")):_*)
-    val onlyProvidedNames = provided -- compile -- runtime -- optional
-    val (onlyProvided, withoutProvided) = dependencies.partition(cpe => onlyProvidedNames contains cpe.data)
-    val exclusions = Seq("!META-INF/MANIFEST.MF", "!library.properties").mkString(",")
-    val inJars = withoutProvided.map("\""+_.data.absolutePath+"\"("+exclusions+")").mkString(JFile.pathSeparator)
-    val libraryJars = onlyProvided.map("\""+_.data.absolutePath+"\"").mkString(JFile.pathSeparator)
-    val outfile = "\""+(target/"%s-%s.jar".format(name, ver)).absolutePath+"\""
-    val classfiles = "\"" + cd.absolutePath + "\""
-    val manifest = "\"" + file("desktop/src/main/manifest").absolutePath + "\""
-    val proguard = options ++ Seq("-cp", Path.makeString(cp.files), "proguard.ProGuard") ++ proguardOptions ++ Seq(
-      "-injars", classfiles,
-      "-injars", inJars,
-      "-injars", manifest,
-      "-libraryjars", libraryJars,
-      "-outjars", outfile)
-
-    s.log.info("preparing proguarded assembly")
-    s.log.debug("Proguard command:")
-    s.log.debug("java "+proguard.mkString(" "))
-    val exitCode = Process("java", proguard) ! s.log
-    if (exitCode != 0) {
-      sys.error("Proguard failed with exit code [%s]" format exitCode)
-    } else {
-      s.log.info("Output file: "+outfile)
-    }
-  }
 }
 
 object LibgdxBuild extends Build {
@@ -157,7 +123,7 @@ object LibgdxBuild extends Build {
   lazy val desktop = Project(
     "desktop",
     file("desktop"),
-    settings = Settings.desktop)
+    settings = Settings.desktop ++ assemblySettings)
     .dependsOn(common)
 
   lazy val android = AndroidProject(

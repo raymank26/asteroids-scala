@@ -35,11 +35,11 @@ class Asteroidsexample extends Game {
         hall_of_fame = new HallOfFameScreen(game=this)
         Backend.authenticate("anton", "123")
 
-        setScreen(main_menu)
+        // setScreen(main_menu)
         // setScreen(registration)
         // setScreen(gameover_screen)
         // setScreen(submit_screen)
-        // setScreen(hall_of_fame)
+        setScreen(hall_of_fame)
 
 
         // gameover_screen.score = (10000)
