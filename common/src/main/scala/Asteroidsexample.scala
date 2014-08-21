@@ -13,6 +13,7 @@ import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.utils.viewport.ScreenViewport
+import scala.concurrent.ExecutionContext.Implicits.global
 
 class Asteroidsexample extends Game {
 
@@ -33,13 +34,15 @@ class Asteroidsexample extends Game {
         registration = new RegistrationScreen(game=this)
         submit_screen = new SubmitScreen(game=this)
         hall_of_fame = new HallOfFameScreen(game=this)
-        Backend.authenticate("anton", "123")
+        // Backend.authenticate("anton", "123") onSuccess {
+        //     case value => value
+        // }
 
-        // setScreen(main_menu)
+        setScreen(main_menu)
         // setScreen(registration)
         // setScreen(gameover_screen)
         // setScreen(submit_screen)
-        setScreen(hall_of_fame)
+        // setScreen(hall_of_fame)
 
 
         // gameover_screen.score = (10000)
@@ -53,13 +56,17 @@ class Asteroidsexample extends Game {
 
     }
     def setHallOfFame() {
-
+        setScreen(hall_of_fame)
     }
 
+    def setMainMenu() {
+        setScreen(main_menu)
+    }
     def showGameOver(score:Int) {
         gameover_screen.score = score
         setScreen(gameover_screen)
     }
+
     // override def create() {
     //     stage = new Stage(new ScreenViewport())
     //     val ship = new Ship()

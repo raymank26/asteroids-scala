@@ -26,8 +26,10 @@ object Settings {
       "com.badlogicgames.gdx" % "gdx" % "1.3.0",
       "com.badlogicgames.gdx" % "gdx-freetype" % "1.3.0",
       "com.badlogicgames.gdx" % "gdx-tools" % "1.3.0",
-      "net.databinder.dispatch" %% "dispatch-core" % "0.11.2",
-      "net.databinder.dispatch" %% "dispatch-json4s-jackson" % "0.11.2",
+      "org.scalaj" %% "scalaj-http" % "0.3.16",
+      // "net.databinder.dispatch" %% "dispatch-core" % "0.11.2",
+      // "net.databinder.dispatch" %% "dispatch-json4s-jackson" % "0.11.2",
+      "org.json4s" %% "json4s-native" % "3.2.10",
       "org.slf4j" % "slf4j-nop" % "1.7.7"
 
     ),

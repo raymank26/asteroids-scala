@@ -10,7 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.utils._
 import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.g2d.TextureAtlas
-import dispatch._
+// import dispatch._
 
 object Settings {
 
@@ -33,13 +33,12 @@ object Settings {
         "saucerBig" -> Gdx.audio.newSound(Gdx.files.internal("sounds/saucerBig.wav"))
         )
 
-    val backend_host = host("localhost", 5000)
+    // val backend_host = host("localhost", 5000)
+    val backend_host_new = "http://localhost:5000"
     lazy val atlas = new TextureAtlas(Gdx.files.internal("result.atlas"))
 
     val skin = {
-        println("Before")
         val skin = new Skin(atlas)
-        println("After")
         skin.add("font20", font_gen(20))
         skin.add("font30", font_gen(30))
         skin.add("font40", font_gen(40))

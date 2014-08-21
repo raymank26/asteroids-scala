@@ -2,6 +2,7 @@ package my.game.pkg.screens
 
 import my.game.pkg.{Settings, Backend}
 import my.game.pkg.Asteroidsexample
+import my.game.pkg.utils.Implicits._
 
 import com.badlogic.gdx.scenes.scene2d.{Stage, Actor}
 import com.badlogic.gdx.scenes.scene2d.ui.{Table, Label, Skin, TextButton, TextField}
@@ -81,13 +82,6 @@ class HallOfFameScreen (
     table.setFillParent(true)
     stage.addActor(table)
 
-
-    // table.add(new Label("Name", skin, "default")).spaceRight(5)
-    // table.add(nameText).spaceBottom(10)
-    // table.row()
-    // table.add(new Label("Password", skin, "default")).spaceRight(5)
-    // table.add(passwordText)
-
     def score_(value:Int) = _score = value
 
     override def show {
@@ -96,15 +90,21 @@ class HallOfFameScreen (
         response onSuccess {
             case scores => {
                 table.clearChildren
+                val back_to_menu = new TextButton("Back to menu", skin)
                 table.add(new Label("Hall of Fame", skin, "game_name"))
                     .colspan(2)
                     .spaceBottom(20)
                     .row()
+                back_to_menu.addListener {
+                    game.setMainMenu()
+                }
                 for(score <- scores) {
                     table.add(new Label(score("username"), skin))
                     table.add(new Label(score("value"), skin))
                     table.row()
                 }
+
+                table.add(back_to_menu).colspan(2).spaceTop(20).row()
             }
         }
     }
