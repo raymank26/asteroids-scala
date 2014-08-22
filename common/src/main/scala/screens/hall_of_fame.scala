@@ -1,14 +1,19 @@
 package my.game.pkg.screens
 
-import my.game.pkg.{Settings, Backend}
+import my.game.pkg.{Settings, Backend, BadRequest}
 import my.game.pkg.Asteroidsexample
 import my.game.pkg.utils.Implicits._
 
 import com.badlogic.gdx.scenes.scene2d.{Stage, Actor}
 import com.badlogic.gdx.scenes.scene2d.ui.{Table, Label, Skin, TextButton, TextField}
 import com.badlogic.gdx.utils.viewport.{Viewport, ScreenViewport}
+import com.badlogic.gdx.graphics.Color
+
+import scalaj.http.HttpException
 
 import scala.concurrent.ExecutionContext.Implicits.global
+// import scala.concurrent._
+import scala.util._
 
 class RegistrationScreen (
     stage:Stage = new Stage(new ScreenViewport()),
@@ -23,8 +28,16 @@ class RegistrationScreen (
 
     val nameText = new TextField("", skin);
     val passwordText = new TextField("", skin);
+    val passwordConfirmationText = new TextField("", skin);
+    val errorText = new Label("", skin)
+    errorText.setColor(Color.RED)
+    val submit = new TextButton("Register", skin);
+    val back_to_menu = new TextButton("Back to menu", skin);
+
     passwordText.setPasswordMode(true)
     passwordText.setPasswordCharacter('*');
+    passwordConfirmationText.setPasswordMode(true)
+    passwordConfirmationText.setPasswordCharacter('*');
 
     table.add(new Label("Registration", skin, "game_name"))
         .colspan(2)
@@ -35,6 +48,51 @@ class RegistrationScreen (
     table.row()
     table.add(new Label("Password", skin, "default")).spaceRight(5)
     table.add(passwordText)
+    table.row()
+    table.add(new Label("Confirm\npassword", skin)).spaceRight(5)
+    table.add(passwordConfirmationText)
+    table.row()
+    table.add(errorText).colspan(2).row()
+    table.add(submit).spaceTop(20).colspan(2).row()
+    table.add(back_to_menu).colspan(2)
+
+    submit.addListener{() =>
+        Backend.register(nameText.getText, passwordText.getText,
+            passwordConfirmationText.getText) onComplete {
+            case Success(_) => {
+                clearColors
+                errorText.setText("success")
+            }
+            case Failure(e) => e match {
+                case BadRequest(path, message) => {
+                    for(entry <- path) {
+                        entry match {
+                            case "username" => nameText.setColor(Color.RED)
+                            case "password1" => passwordText.setColor(Color.RED)
+                            case "password2" => passwordConfirmationText.setColor(Color.RED)
+                        }
+                    }
+                    println(s"message ${message}")
+                    println(s"path ${path}")
+                    errorText.setText(message)
+                }
+                case _ =>
+            }
+
+        }
+    }
+    back_to_menu.addListener{() =>
+        game.setMainMenu()
+
+
+    }
+    def clearColors():Unit = {
+        val defaultColor = Color.WHITE
+        nameText.setColor(defaultColor)
+        passwordText.setColor(defaultColor)
+        passwordConfirmationText.setColor(defaultColor)
+
+    }
 
 }
 

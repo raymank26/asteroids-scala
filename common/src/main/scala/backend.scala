@@ -9,11 +9,13 @@ import org.json4s._
 import org.json4s.native.JsonMethods._
 import org.json4s.Formats
 import JsonDSL._
+import scalaj.http.HttpException
 
 import scala.concurrent._
 import scala.concurrent.ExecutionContext.Implicits.global
 // import ExecutionContext.Implicits.global
 
+case class BadRequest(path: List[String], message: String) extends Exception
 
 object Backend {
     implicit lazy val formats = DefaultFormats
@@ -56,6 +58,27 @@ object Backend {
         key match {
             case Some(_) => true
             case None => false
+        }
+    }
+    def register(name: String, password1: String, password2: String) = {
+        println("In register")
+        val f = Future {
+            val response = HttpJ.post(Settings.backend_host_new / "users" / "")
+                .params("username" -> name, "password1" -> password1,
+                    "password2" -> password2)
+            response.asString
+        }
+        f
+        f recover { // process json
+            case ex:HttpException => {
+                val json = parse(ex.body)
+                val message = json \ "errors" match {
+                    case value:JString => value.s
+                    case _ => ""
+                }
+                val path = (json \ "path").extract[List[String]]
+                throw new BadRequest(path, message)
+            }
         }
     }
 }

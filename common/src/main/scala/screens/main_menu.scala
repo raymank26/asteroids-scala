@@ -39,15 +39,20 @@ class MainMenu(
     stage.addActor(table)
     val game_name = new Label("ASTEROIDS", skin, "game_name")
     val start_game = new TextButton("Start game", skin);
+    val registration = new TextButton("Registration", skin);
     val hall_of_fame = new TextButton("Hall of Fame", skin);
     table.add(game_name).spaceBottom(30).row()
     table.add(start_game).spaceBottom(20);
     table.row()
+    table.add(registration).spaceBottom(20)
+    table.row()
     table.add(hall_of_fame)
 
     start_game.addListener{ () =>
-        println("set game");
         game.setGame()
+    }
+    registration.addListener{ () =>
+        game.setRegistration()
     }
     hall_of_fame.addListener(() => game.setHallOfFame())
 }

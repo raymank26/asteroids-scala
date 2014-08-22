@@ -48,8 +48,15 @@ object Implicits {
 
     implicit def listenerMethod(func: () => Unit): ChangeListener = {
         new ChangeListener {
-            override def changed(event: ChangeEvent, actor:Actor): Unit = {
+            override def changed(event: ChangeEvent, actor:Actor) {
                 func()
+            }
+        }
+    }
+    implicit def listenerMethodTwo(func: => Unit): ChangeListener = {
+        new ChangeListener {
+            override def changed(event: ChangeEvent, actor:Actor) {
+                func
             }
         }
     }

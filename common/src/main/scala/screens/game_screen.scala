@@ -61,7 +61,7 @@ class GameOverScreen(
     val nameText = new TextField("", skin);
     val passwordText = new TextField("", skin);
     val submit = new TextButton("Submit", skin)
-    val back = new TextButton("Back to menu", skin)
+    val back_to_menu = new TextButton("Back to menu", skin)
 
     passwordText.setPasswordMode(true)
     passwordText.setPasswordCharacter('*');
@@ -75,27 +75,20 @@ class GameOverScreen(
     table.add(new Label("Password", skin, "default")).spaceRight(5)
     table.add(passwordText).row()
     table.add(submit).colspan(2).right().spaceBottom(20).row()
-    table.add(back).colspan(2)
+    table.add(back_to_menu).colspan(2)
 
-    // submit.addListener(
-    //     new ChangeListener() {
-    //         def changed(event: ChangeEvent, actor:Actor): Unit = {
-    //             println("HERE")
-    //             1 / 0
-    //         }
-    //     }
-    // )
-    submit.addListener{() => {
-        if(!Backend.isAuthenticated()) {
-            Backend.authenticate(nameText.getText, passwordText.getText)
-                .map(result => Backend.submit_score(500))
-        }
-        else {
-            Backend.submit_score(100)
-        }
-        println("HERE")
-        // Unit
+    submit.addListener{() =>
+        // if(!Backend.isAuthenticated()) {
+        Backend.authenticate(nameText.getText, passwordText.getText)
+            .map(_ => Backend.submit_score(score))
+        // }
+        // else {
+        //     Backend.submit_score(score)
+        // }
+        ()
     }
+    back_to_menu.addListener {() =>
+        game.setMainMenu()
     }
 
 

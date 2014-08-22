@@ -58,6 +58,9 @@ class Asteroidsexample extends Game {
     def setHallOfFame() {
         setScreen(hall_of_fame)
     }
+    def setRegistration() {
+        setScreen(registration)
+    }
 
     def setMainMenu() {
         setScreen(main_menu)
