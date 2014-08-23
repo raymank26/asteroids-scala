@@ -5,11 +5,12 @@ import my.game.pkg.Settings
 // import dispatch.Defaults._
 
 import scalaj.http.{Http => HttpJ}
-import org.json4s._
-import org.json4s.native.JsonMethods._
-import org.json4s.Formats
-import JsonDSL._
+// import org.json4s._
+// import org.json4s.native.JsonMethods._
+// import org.json4s.Formats
+// import JsonDSL._
 import scalaj.http.HttpException
+import argonaut._, Argonaut._
 
 import scala.concurrent._
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -18,7 +19,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 case class BadRequest(path: List[String], message: String) extends Exception
 
 object Backend {
-    implicit lazy val formats = DefaultFormats
+    // implicit lazy val formats = DefaultFormats
     implicit class StringWithSlash(a:String) {
         def /(appended: String) = {
             a + "/" + appended
@@ -39,8 +40,7 @@ object Backend {
     def fetch_scores = {
         Future {
             val response = HttpJ(Settings.backend_host_new / "scores" / "top10" / "").asString
-            parse(response).extract[List[Map[String,String]]]
-
+            response.decodeOption[List[Map[String, String]]].getOrElse(List())
         }
     }
     def authenticate(name: String, password:String) = {
@@ -49,9 +49,11 @@ object Backend {
                 .method("PUT")
                 .params("username" -> name, "password" -> password)
                 .asString
-            // TODO: make JSON parsing safer
-            val res = parse(response).extract[Map[String, String]]
-            key = Some(res("token"))
+            key = for {
+                value <- response.decodeOption[Map[String, String]]
+            } yield value("token")
+            // val res = parse(response).extract[Map[String, String]]
+            // key = Some(res("token"))
         }
     }
     def isAuthenticated() = {
@@ -71,13 +73,20 @@ object Backend {
         f
         f recover { // process json
             case ex:HttpException => {
-                val json = parse(ex.body)
-                val message = json \ "errors" match {
-                    case value:JString => value.s
-                    case _ => ""
-                }
-                val path = (json \ "path").extract[List[String]]
-                throw new BadRequest(path, message)
+                val errorLn = jObjectPL >=> jsonObjectPL("errors") >=> jStringPL
+                val errorListLn = jObjectPL >=> jsonObjectPL("path") >=> jArrayPL
+                val json = ex.body.parseOption
+                val message = for {
+                    j <- json
+                    m <- errorLn.get(j)
+                } yield m
+                val errors = for {
+                    j <- json
+                    errors <- errorListLn.get(j)
+                } yield for {
+                    error <- errors
+                } yield error.stringOr("")
+                throw new BadRequest(errors.getOrElse(List()), message.getOrElse(""))
             }
         }
     }

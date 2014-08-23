@@ -30,8 +30,8 @@ object Settings {
       // "net.databinder.dispatch" %% "dispatch-core" % "0.11.2",
       // "net.databinder.dispatch" %% "dispatch-json4s-jackson" % "0.11.2",
       "org.json4s" %% "json4s-native" % "3.2.10",
-      "org.slf4j" % "slf4j-nop" % "1.7.7"
-
+      "org.slf4j" % "slf4j-nop" % "1.7.7",
+      "io.argonaut" %% "argonaut" % "6.0.4"
     ),
     cancelable := true,
     proguardOptions <<= (baseDirectory) { (b) => Seq(
